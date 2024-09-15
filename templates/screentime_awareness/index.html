@@ -1,22 +1,25 @@
 <!DOCTYPE html>
+{% extends "base.html" %}
 <html lang="en">
 <head>
-    <style>
-.big_header {
-    background-color:black;
-    color:white;
-    border:2px solid black;
-    margin:20px;
-    padding:20px;
-    font-size:50px;
-}</style>
-    <meta charset="UTF-8">
-    <title>Beyond the Screen</title>
-</head>
-<body>
-<div class="big_header">
-    <h2>Beyond the Screen</h2>
-</div>
+<!--{% block title %}{% endblock %}-->
+        <!-- Bootstrap core CSS -->
+<!--    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">-->
 
+<!--    &lt;!&ndash; Custom styles for this template &ndash;&gt;-->
+<!--    <link href="cover.css" rel="stylesheet">-->
+</head>
+<body class="text-center">
+{% block content %}
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <main role="main" class="inner cover text-center">
+        <h1 class="cover-heading">Beyond the Screen</h1>
+        <p class="lead">This is the cover page for the site. A quick mission statement will be written here</p>
+        <p class="lead">
+          <a href="#" class="btn btn-lg btn-secondary">Get Started</a>
+        </p>
+      </main>
+</div>
+{% endblock%}
 </body>
 </html>
