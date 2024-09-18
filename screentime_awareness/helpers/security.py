@@ -9,7 +9,7 @@ def get_secret() -> str:
 def encrypt_pw(user_id: str, password: str):
     # add the local secret to the password and hash them
     salt = bcrypt.gensalt()
-    hashed_pw = bcrypt.hashpw((get_secret() + password).encode(), salt)
+    hashed_pw = str(bcrypt.hashpw((get_secret() + password).encode(), salt))
     dbc = DBC()
     sql = f"insert into users values('{user_id}', '{hashed_pw}');"
     dbc.write(sql)
