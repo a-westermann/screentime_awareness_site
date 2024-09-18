@@ -11,7 +11,7 @@ def encrypt_pw(user_id: str, password: str):
     salt = bcrypt.gensalt()
     hashed_pw = bcrypt.hashpw((get_secret() + password).encode(), salt)
     dbc = DBC()
-    sql = f"insert into users values('{user_id}', '{salt}');"
+    sql = f"insert into users values('{user_id}', '{hashed_pw}');"
     dbc.write(sql)
 
 def decrypt_pw(user_id: str):
