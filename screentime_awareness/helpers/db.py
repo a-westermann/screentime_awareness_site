@@ -15,3 +15,6 @@ class DBC:
         conn = self.open_connection()
         cursor = conn.cursor()
         cursor.execute(sql)
+        records = cursor.fetchall()
+        cursor.close()
+        return records
