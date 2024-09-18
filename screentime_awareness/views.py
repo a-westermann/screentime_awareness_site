@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from helpers import security
+from screentime_awareness.helpers import security
 
 
 def index(request):
