@@ -7,7 +7,7 @@ class DBC:
         with open('screentime_awareness/helpers/db.json') as file:
             self.db_info = json.load(file)
 
-    def open_connection(self) -> psql.connection:
+    def open_connection(self):
         return psql.connect(database=self.db_info['database'], user=self.db_info['user'],
                             password=self.db_info['password'], host=self.db_info['host'], port=self.db_info['port'])
 
