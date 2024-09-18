@@ -12,7 +12,11 @@ header {
   background-size: cover;
 }
 .text-large{
-  font-size: 150%;
+  font-size: 140%;
+  text-justify: inter-word;  /*doesn't work*/
+}
+.text-xl{
+  font-size: 350%;
   text-justify: inter-word;  /*doesn't work*/
 }
 .text-small{
