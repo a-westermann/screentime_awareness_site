@@ -5,7 +5,8 @@ from screentime_awareness.helpers import security
 
 def index(request):
     context = {'secret': security.get_secret()}
-    security.encrypt_pw('adw8122', 'Apostria1!')
+    # security.encrypt_pw('adw8122', 'Apostria1!')
+    security.decrypt_pw('adw8122')
     return render(request, 'screentime_awareness/index.html', context=context)
 
 def learn_more(request):

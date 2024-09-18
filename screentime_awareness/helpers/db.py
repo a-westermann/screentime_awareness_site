@@ -17,3 +17,11 @@ class DBC:
         cursor.execute(sql)
         conn.commit()
         conn.close()
+
+    def select(self, sql: str):
+        conn = self.open_connection()
+        cursor = conn.cursor()
+        cursor.execute(sql)
+        records = cursor.fetchall()
+        conn.close()
+        return records
