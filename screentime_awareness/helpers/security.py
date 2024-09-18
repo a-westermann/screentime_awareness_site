@@ -1,5 +1,5 @@
 import bcrypt
-from db import DBC
+from screentime_awareness.helpers.db import DBC
 
 
 def get_secret() -> str:
