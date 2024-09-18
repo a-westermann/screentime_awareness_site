@@ -5,7 +5,7 @@ from screentime_awareness.helpers import security
 
 def index(request):
     context = {'secret': security.get_secret()}
-    return render(request, 'screentime_awareness/index.html')
+    return render(request, 'screentime_awareness/index.html', context=context)
 
 def learn_more(request):
     return render(request, 'screentime_awareness/learn_more.html')
