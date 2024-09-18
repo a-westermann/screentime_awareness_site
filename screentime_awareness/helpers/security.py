@@ -9,7 +9,8 @@ def get_secret() -> str:
 def encrypt_pw(user_id: str, password: str):
     # add the local secret to the password and hash them
     salt = bcrypt.gensalt()
-    hashed_pw = str(bcrypt.hashpw((get_secret() + password).encode(), salt))
+    # note that using bcrypt, the salt is saved into the hash itself, so no need to store separately
+    hashed_pw = bcrypt.hashpw((get_secret() + password).encode(), salt).decode()
     print(f'salt: {salt}')
     print(f'password hashed: {hashed_pw}')
     dbc = DBC()
