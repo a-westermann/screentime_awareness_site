@@ -1,0 +1,52 @@
+/*.my-image {*/
+/*    background: url('././screentime_awareness_site/media/kids_phones.jpg');*/
+/*    background-size: cover; !* will stretch the image to your div size while maintaining aspect ratio *!*/
+/*}*/
+header {
+  height: 80px;
+  background-color: ghostwhite;
+}
+.hero {
+  padding-bottom: 20%; /* = ( 600 / 1600 ) x 100 */
+  background-image: url( '/static/index_bg_gradient.png' );
+  background-size: cover;
+}
+.text-large{
+  font-size: 150%;
+  text-justify: inter-word;  /*doesn't work*/
+}
+.text-small{
+  font-size: 80%;
+}
+.text-dark{
+  color: darkslategrey;
+  font-family: Calibri,  sans-serif;
+}
+.text-light{
+  color: ghostwhite;
+  font-family: Calibri, sans-serif;
+}
+.text-light-small{
+    color: ghostwhite;
+  font-family: Calibri, sans-serif;
+  font-size: 80%;
+}
+.text-faint{
+  color: darkslategray;
+  font-size: 80%;
+}
+
+.page-header h1 {
+  margin-top: 0px;
+}
+.page-header {
+  height: 60px;
+  margin-top: 0px;
+  background-size: cover;
+  background-image: url('/static/title_bar.png');
+}
+/*@media (min-width: 600px){*/
+/*.container-narrow{*/
+/*  max-width: 250px;*/
+/*}*/
+/*}*/

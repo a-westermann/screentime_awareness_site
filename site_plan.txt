@@ -4,3 +4,6 @@
 #  User accounts
 #  Quiz
 #  Link two user accounts (or more?) for parents to talk. What if one doesn't respond? Reassign?
+
+>Logging in /register
+>>If Log in does not work, redirect users to a page dedicated to log in and register

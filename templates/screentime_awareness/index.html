@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 <html lang="en">
-<head>
-<!--{% block title %}{% endblock %}-->
-        <!-- Bootstrap core CSS -->
-<!--    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">-->
-
-<!--    &lt;!&ndash; Custom styles for this template &ndash;&gt;-->
-<!--    <link href="cover.css" rel="stylesheet">-->
-</head>
-<body class="text-center">
 {% block content %}
-<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-      <main role="main" class="inner cover text-center">
-        <h1 class="cover-heading">Beyond the Screen</h1>
-        <p class="lead">This is the cover page for the site. A quick mission statement will be written here</p>
-        <p class="lead">
-          <a href="#" class="btn btn-lg btn-secondary">Get Started</a>
-        </p>
-      </main>
-</div>
+    <div class="container col-xxl-12 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-2">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="{{ MEDIA_URL }}media/girl_phone_cutout.png" class="d-block mx-lg-auto img-fluid"
+                     alt="" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="text-white display-2 fw-bold lh-1 mb-3">Beyond<br> the Screen</h1>
+                <p class="text-large text-white">This is where a brief explanation of the issue, followed by the mission
+                    statement will go.
+                    <br><br>It should be brief but hook viewers into signing up.</p>
+                <div class = "row">
+                    <div class = "col-md-4">
+                            <a href="#login_box" class="btn btn-primary btn-lg" style="margin-top: 5px">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-light text-large text-center" style="margin: 150px 20px 50px;">
+    Log in or Register to discover ways to help your child beat screen addiction<br>
+    </div>
+    <div id="login_box" class="parent container d-flex justify-content-center align-items-center">
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="text-light">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-small text-faint">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1" class="text-light">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 10px">Log in</button>
+        <button type="submit" class="btn btn-secondary" style="margin-top: 10px">Register</button>
+    </form>
+    </div>
 {% endblock%}
-</body>
 </html>

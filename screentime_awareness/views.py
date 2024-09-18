@@ -7,3 +7,6 @@ def index(request):
 
 def learn_more(request):
     return render(request, 'screentime_awareness/learn_more.html')
+
+def donate(request):
+    return render(request, 'screentime_awareness/donate.html')

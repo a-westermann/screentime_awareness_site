@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-by2q8kl9a&tb_!)-r_*0s1#w_74_+1mzkyhn7qqi1_19^gmx_d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.35',
+ALLOWED_HOSTS = ['192.168.1.31',
                  '192.168.1.229',
                  '127.0.0.1']
 
@@ -73,6 +73,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'screentime_awareness_site.wsgi.application'
 
+MEDIA_ROOT = r"H:/Coding/Python Projects/screentime_awareness_site/screentime_awareness_site/media/"
+MEDIA_URL = "/media/"
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -120,6 +122,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static',
+                    ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
