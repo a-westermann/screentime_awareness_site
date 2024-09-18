@@ -1,4 +1,5 @@
 import bcrypt
+from db import DBC
 
 
 def get_secret() -> str:
@@ -8,4 +9,4 @@ def get_secret() -> str:
 def encrypt_pw(user_id: str, password: str):
     # add the local secret to the password and hash them
     hashed_pw = bcrypt.hashpw((get_secret() + password).encode(), bcrypt.gensalt())
-
+    dbc = DBC()
