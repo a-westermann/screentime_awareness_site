@@ -20,5 +20,5 @@ def encrypt_pw(user_id: str, password: str):
 def decrypt_pw(user_id: str):
     dbc = DBC()
     sql = f"select * from users where id = '{user_id}' LIMIT 1;"
-    hashed_pw = dbc.select(sql)['hashed_password']
+    hashed_pw = dbc.select(sql)
     print(hashed_pw)
