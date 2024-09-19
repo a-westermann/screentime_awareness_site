@@ -15,6 +15,7 @@ def log_in(request, user_id: str, pw: str):
         print('success')
     else:
         print('fail')
+    return render(request, 'screentime_awareness/log_in.html')
 
 def learn_more(request):
     return render(request, 'screentime_awareness/learn_more.html')
