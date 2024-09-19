@@ -1,4 +1,6 @@
+import psycopg2
 import psycopg2 as psql
+from psycopg2 import extras
 import json
 
 
@@ -20,7 +22,7 @@ class DBC:
 
     def select(self, sql: str):
         conn = self.open_connection()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=extras.RealDictCursor)
         cursor.execute(sql)
         records = cursor.fetchall()
         conn.close()
