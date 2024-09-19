@@ -5,7 +5,7 @@ from django.urls import reverse
 
 
 def index(request):
-    reverse('screentime_awareness.views.log_in', 'asdef', 'asdfk')
+    reverse('screentime_awareness.views.log_in')
     context = {'secret': security.get_secret()}
     # pw = 'Apostria1!'
     # security.encrypt_pw('adw8122', pw)
