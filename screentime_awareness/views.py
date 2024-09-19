@@ -10,7 +10,7 @@ def index(request):
     # print(f"pw {pw} valid: {security.validate_pw('adw8122', pw)}")
     return render(request, 'screentime_awareness/index.html', context=context)
 
-def log_in(request, user_id: str, pw: str):
+def log_in(request, num: int):
     if security.validate_pw(user_id, pw):
         print('success')
     else:
