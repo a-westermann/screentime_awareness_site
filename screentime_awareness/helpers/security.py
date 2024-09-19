@@ -21,4 +21,4 @@ def validate_pw(user_id: str, entered_pw: str) -> bool:
     dbc = DBC()
     sql = f"select * from users where id = '{user_id}' LIMIT 1;"
     hashed_pw = dbc.select(sql)[0]['hashed_password']
-    return bcrypt.checkpw(entered_pw.encode(), hashed_pw.encode())
+    return bcrypt.checkpw((get_secret() + entered_pw).encode(), hashed_pw.encode())
