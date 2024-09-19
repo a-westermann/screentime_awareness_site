@@ -17,8 +17,8 @@ def encrypt_pw(user_id: str, password: str):
     sql = f"insert into users values('{user_id}', '{hashed_pw}');"
     dbc.write(sql)
 
-def decrypt_pw(user_id: str):
+def validate_pw(user_id: str, entered_pw: str) -> bool:
     dbc = DBC()
     sql = f"select * from users where id = '{user_id}' LIMIT 1;"
     hashed_pw = dbc.select(sql)[0]['hashed_password']
-    print(hashed_pw)
+    return bcrypt.checkpw(hashed_pw, entered_pw.encode())
