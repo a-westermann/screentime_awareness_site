@@ -37,7 +37,7 @@
             <input type="password" class="form-control" id="inputPassword" placeholder="Password">
         </div>
         <button type="submit" formaction="{% url 'log_in' %}" formmethod="post"
-                class="btn btn-primary" style="margin-top: 10px">Log in</button>
+                class="btn btn-primary" style="margin-top: 10px">Log in{% csrf_token %}</button>
         <button type="submit" class="btn btn-secondary" style="margin-top: 10px">Register</button>
     </form>
     </div>
