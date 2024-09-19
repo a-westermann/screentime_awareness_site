@@ -5,11 +5,11 @@ from django.urls import reverse
 
 
 def index(request):
-    context = {'secret': security.get_secret()}
+    # context = {'secret': security.get_secret()}
     # pw = 'Apostria1!'
     # security.encrypt_pw('adw8122', pw)
     # print(f"pw {pw} valid: {security.validate_pw('adw8122', pw)}")
-    return render(request, 'screentime_awareness/index.html', context=context)
+    return render(request, 'screentime_awareness/index.html')
 
 def log_in(request, user_id: str, pw: str):
     if security.validate_pw(user_id, pw):

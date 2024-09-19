@@ -26,7 +26,8 @@
     Log in or Register to discover ways to help your child beat screen addiction<br>
     </div>
     <div class="parent container d-flex justify-content-center align-items-center">
-    <form>
+    <form method="post" action="{% url 'log_in' %}">
+        {% csrf_token %}
         <div class="form-group">
             <label for="inputEmail" class="text-light">Email address</label>
             <label for="inputEmail"></label><input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
@@ -36,8 +37,8 @@
             <label for="inputPassword" typeof="string" class="text-light">Password</label>
             <input type="password" class="form-control" id="inputPassword" placeholder="Password">
         </div>
-        <button type="submit" formaction="{% url log_in inputEmail inputPassword %}" formmethod="post"
-                class="btn btn-primary" style="margin-top: 10px">Log in{% csrf_token %}</button>
+        <button type="submit"
+                class="btn btn-primary" style="margin-top: 10px">Log in</button>
         <button type="submit" class="btn btn-secondary" style="margin-top: 10px">Register</button>
     </form>
     </div>
