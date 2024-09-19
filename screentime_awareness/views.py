@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from screentime_awareness.helpers import security
+from django.urls import reverse
 
 
 def index(request):
+    reverse('screentime_awareness.views.log_in', 'asdef', 'asdfk')
     context = {'secret': security.get_secret()}
     # pw = 'Apostria1!'
     # security.encrypt_pw('adw8122', pw)
@@ -13,9 +15,13 @@ def index(request):
 def log_in(request, user_id: str, pw: str):
     if security.validate_pw(user_id, pw):
         print('success')
+        return render(request, 'screentime_awareness/account.html')
     else:
         print('fail')
-    return render(request, 'screentime_awareness/log_in.html')
+        return render(request, 'screentime_awareness/index.html')
+
+def account(request):
+    return render(request, 'screentime_awareness/account.html')
 
 def learn_more(request):
     return render(request, 'screentime_awareness/learn_more.html')
