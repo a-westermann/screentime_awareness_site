@@ -32,8 +32,9 @@ def log_in_user(request):
             return redirect('index', invalid_login=True)
         else:  # valid login. Redirect to home
             # set up a User object to save the user's information to the session
-            request.session = {'user': user.to_json()}
+            request.session['user'] = user
             print(request.session['user'])
+            request.session.save()
             return render(request, 'screentime_awareness/home.html')
     else:
         print('failed to get post data from login form')
@@ -62,8 +63,8 @@ def register_user(request):
         else:
             security.add_user_to_db(email, pw, username)
             user = User(email, username)
-            context = {'user': user.to_json()}
-            return render(request, 'screentime_awareness/home.html', context=context)
+            request.session['user'] = user
+            return render(request, 'screentime_awareness/home.html')
     else:
         print('error')
 
