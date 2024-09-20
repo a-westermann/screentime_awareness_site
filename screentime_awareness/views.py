@@ -21,9 +21,9 @@ def account(request):
         pw = request.POST.get('pw', None)
         if not email_address or not pw or not security.validate_pw(email_address, pw):
             return redirect('index', invalid_login=True)
-        else:  # valid login. Redirect to account center
+        else:  # valid login. Redirect to home
             # pass username? create a user object?
-            return render(request, 'screentime_awareness/account.html')
+            return render(request, 'screentime_awareness/home.html')
     else:
         print('failed to get post data from login form')
 
