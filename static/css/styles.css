@@ -31,11 +31,20 @@ header {
   font-family: Calibri, sans-serif;
   text-decoration: none;
 }
-.text-light-small{
-    color: ghostwhite;
-  font-family: Calibri, sans-serif;
-  font-size: 80%;
+.text-danger{
+  color: crimson;
 }
+.text-warning{
+  color: gold;
+}
+.stroke{
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+/*.text-light-small{*/
+/*    color: ghostwhite;*/
+/*  font-family: Calibri, sans-serif;*/
+/*  font-size: 80%;*/
+/*}*/
 .text-faint{
   color: darkslategray;
   font-size: 80%;
