@@ -17,8 +17,8 @@ def home(request):
     if not request.session or 'user' not in request.session:
         # user is not logged in this session. Redirect to index
         return redirect('index')
-    print(request.session['user'].username)
-    context = {'username': request.session['user'].username}
+    username = json.loads(request.session['user'])['username']
+    context = {'username': username}
     return render(request, 'screentime_awareness/home.html', context=context)
 
 def log_in_user(request):
@@ -34,8 +34,6 @@ def log_in_user(request):
         else:  # valid login. Redirect to home
             # set up a User object to save the user's information to the session
             request.session['user'] = user.to_json()
-            print(request.session['user'])
-            print(json.loads(request.session['user'])['username'])
             request.session.save()
             return render(request, 'screentime_awareness/home.html')
     else:
