@@ -119,7 +119,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
 
 
 # Static files (CSS, JavaScript, Images)
