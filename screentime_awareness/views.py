@@ -32,6 +32,7 @@ def log_in_user(request):
         else:  # valid login. Redirect to home
             # set up a User model to save the user's information for this session
             request.session['user'] = user.to_json()
+            print(request.session['user'])
             return render(request, 'screentime_awareness/home.html')
     else:
         print('failed to get post data from login form')
@@ -59,7 +60,9 @@ def register_user(request):
         # if valid, update the db and direct them to home
         else:
             security.add_user_to_db(email, pw, username)
-            return render(request, 'screentime_awareness/home.html')
+            user = User(email, username)
+            context = {'user': user.to_json()}
+            return render(request, 'screentime_awareness/home.html', context=context)
     else:
         print('error')
 
