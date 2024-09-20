@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from screentime_awareness.helpers import security
 from django.shortcuts import redirect
+from  screentime_awareness.models import User
 
 
 def index(request, invalid_login=False):
@@ -12,7 +13,10 @@ def index(request, invalid_login=False):
     return render(request, 'screentime_awareness/index.html', context=context)
 
 def home(request):
-    context = {}
+    if not request.session or 'user' not in request.session:
+        # user is not logged in this session. Redirect to index
+        return redirect('index')
+    context = {'user_name': request.session['user'].user_name}
     return render(request, 'screentime_awareness/home.html', context=context)
 
 def log_in_user(request):
@@ -25,7 +29,8 @@ def log_in_user(request):
         if not email_address or not pw or not security.validate_pw(email_address, pw):
             return redirect('index', invalid_login=True)
         else:  # valid login. Redirect to home
-            # pass username? create a user object?
+            # set up a User model to save the user's information for this session
+            request.session['user'] = User(email_address)
             return render(request, 'screentime_awareness/home.html')
     else:
         print('failed to get post data from login form')
@@ -50,6 +55,9 @@ def register_user(request):
             return render(request, 'screentime_awareness/home.html')
     else:
         print('error')
+
+def account(request):
+    return render(request, 'screentime_awareness/account.html')
 
 def learn_more(request):
     return render(request, 'screentime_awareness/learn_more.html')
