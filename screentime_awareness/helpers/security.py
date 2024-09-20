@@ -21,7 +21,7 @@ def add_user_to_db(user_id: str, password: str):
 
 def get_user(email_address: str, entered_pw: str) -> User or None:
     dbc = DBC()
-    sql = f"select * from users where id = '{email_address}' LIMIT 1;"
+    sql = f"select * from users where email_address = '{email_address}' LIMIT 1;"
     results = dbc.select(sql)
     if len(results) == 0:
         return None
