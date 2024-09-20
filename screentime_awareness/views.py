@@ -32,7 +32,7 @@ def log_in_user(request):
             return redirect('index', invalid_login=True)
         else:  # valid login. Redirect to home
             # set up a User object to save the user's information to the session
-            request.session['user'] = user
+            request.session['user'] = user.to_json()
             print(request.session['user'])
             request.session.save()
             return render(request, 'screentime_awareness/home.html')
@@ -63,7 +63,8 @@ def register_user(request):
         else:
             security.add_user_to_db(email, pw, username)
             user = User(email, username)
-            request.session['user'] = user
+            request.session['user'] = user.to_json()
+            request.session.save()
             return render(request, 'screentime_awareness/home.html')
     else:
         print('error')
