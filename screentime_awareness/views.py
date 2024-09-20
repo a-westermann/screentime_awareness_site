@@ -17,7 +17,7 @@ def home(request):
         # user is not logged in this session. Redirect to index
         return redirect('index')
     print(request.session['user'].username)
-    context = {'username': request.session['user'].username}
+    context = {'username': request.session['user']['username']}
     return render(request, 'screentime_awareness/home.html', context=context)
 
 def log_in_user(request):
