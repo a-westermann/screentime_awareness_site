@@ -22,9 +22,12 @@ def validate_pw(email_address: str, entered_pw: str) -> bool:
         dbc = DBC()
         sql = f"select * from users where id = '{email_address}' LIMIT 1;"
         results = dbc.select(sql)
+        print(results)
         if len(results) == 0:
+            print('no results')
             return False
         hashed_pw = results['hashed_password']
+        print(hashed_pw)
         # combine the local secret to the prompted pw and encode to bytes
         entered_pw = (get_secret() + entered_pw).encode()
         return bcrypt.checkpw(entered_pw, hashed_pw.encode())
