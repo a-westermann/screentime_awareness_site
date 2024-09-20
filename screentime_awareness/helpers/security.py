@@ -16,7 +16,7 @@ def add_user_to_db(email: str, password: str, username: str):
     print(f'salt: {salt}')
     print(f'password hashed: {hashed_pw}')
     dbc = DBC()
-    sql = f"insert into users values('{email}', '{hashed_pw}', );"
+    sql = f"insert into users values('{email}', '{hashed_pw}', '{username}');"
     dbc.write(sql)
 
 def check_registered(email_address: str) -> bool:
