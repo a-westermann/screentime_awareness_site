@@ -1,4 +1,3 @@
-import psycopg2
 import psycopg2 as psql
 from psycopg2 import extras
 import json
