@@ -17,6 +17,7 @@ def home(request):
     if not request.session or 'user' not in request.session:
         # user is not logged in this session. Redirect to index
         return redirect('index')
+    print(request.session['user'])
     username = json.loads(request.session['user'])['username']
     context = {'username': username}
     return render(request, 'screentime_awareness/home.html', context=context)
