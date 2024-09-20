@@ -19,6 +19,12 @@ def add_user_to_db(user_id: str, password: str):
     sql = f"insert into users values('{user_id}', '{hashed_pw}');"
     dbc.write(sql)
 
+def check_registered(email_address: str) -> bool:
+    sql = f"select * from users where email = '{email_address}' LIMIT 1;"
+    dbc = DBC()
+    results = dbc.select(sql)
+    return len(results) > 0
+
 def get_user(email_address: str, entered_pw: str) -> User or None:
     dbc = DBC()
     sql = f"select * from users where email = '{email_address}' LIMIT 1;"

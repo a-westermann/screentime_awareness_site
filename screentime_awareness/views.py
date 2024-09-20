@@ -36,15 +36,20 @@ def log_in_user(request):
     else:
         print('failed to get post data from login form')
 
-def register(request, invalid_creds=False):
+def register(request, invalid_creds=False, already_registerd=False):
     context = {}
     if invalid_creds:
         context['invalid_creds'] = True
+    elif already_registerd:
+        context['already_registered'] = True
     return render(request, 'screentime_awareness/register.html', context=context)
 
 def register_user(request):
     if request.POST:
         email = request.POST.get('email_address', None)
+        # if the email is already registered, deny
+        if security.check_registered(email):
+            return redirect('register', already_registered=True)
         pw = request.POST.get('pw', None)
         confirm_pw = request.POST.get('confirm_pw', None)
         # validate email and password. If invalid, reload register.html
