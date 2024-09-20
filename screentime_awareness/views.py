@@ -17,7 +17,7 @@ def home(request):
         # user is not logged in this session. Redirect to index
         return redirect('index')
     print(request.session['user'].username)
-    context = {'username': request.session['user']['username']}
+    context = {'username': request.session['user'].username}
     return render(request, 'screentime_awareness/home.html', context=context)
 
 def log_in_user(request):
@@ -34,7 +34,7 @@ def log_in_user(request):
             # set up a User object to save the user's information to the session
             request.session['user'] = user.to_json()
             print(request.session['user'])
-            print(request.session['user']['username'])
+            print(request.session['user'].username)
             request.session.save()
             return render(request, 'screentime_awareness/home.html')
     else:
