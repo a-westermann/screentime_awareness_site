@@ -31,7 +31,7 @@ def log_in_user(request):
             return redirect('index', invalid_login=True)
         else:  # valid login. Redirect to home
             # set up a User model to save the user's information for this session
-            request.session['user'] = user
+            request.session['user'] = user.to_json()
             return render(request, 'screentime_awareness/home.html')
     else:
         print('failed to get post data from login form')
