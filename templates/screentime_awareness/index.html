@@ -34,7 +34,7 @@
     </div>
 
     <div class="parent container d-flex justify-content-center align-items-center">
-        <form id='login form' method="post" action="{% url 'account' %}">
+        <form id='login form' method="post" action="{% url 'log_in_user' %}">
             {% csrf_token %}
             <div class="form-group">
                 <label for="inputEmail" class="text-light">Email address</label>
@@ -49,7 +49,7 @@
                 <input type="password" class="form-control" id="pw" name="pw" placeholder="Password">
             </div>
             {% if invalid_login %}
-                <a class="text-warning stroke text-large">Invalid email or password</a>
+                <a class="text-warning stroke text-large text-decoration-none">Invalid email or password</a>
             {% endif %}
             <button type="submit" class="btn btn-primary" style='margin-top: 10px'>Log in</button>
             <a href="/register">

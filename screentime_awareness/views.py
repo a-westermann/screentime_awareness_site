@@ -15,7 +15,10 @@ def home(request):
     context = {}
     return render(request, 'screentime_awareness/home.html', context=context)
 
-def account(request):
+def log_in_user(request):
+    # This method is called to try to log in a user when they submit their credentials
+    # Upon success, it redirects them to the home page
+    # Failure reloads the login page for them to try again, and displays info about the failed login attempt
     if request.POST:
         email_address = request.POST.get('email_address', None)
         pw = request.POST.get('pw', None)
