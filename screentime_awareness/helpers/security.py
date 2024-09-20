@@ -26,7 +26,7 @@ def validate_pw(email_address: str, entered_pw: str) -> bool:
             return False
         hashed_pw = results[0]['hashed_password']
         # combine the local secret to the prompted pw and encode to bytes
-        entered_pw = (get_secret() + entered_pw).encode()
+        entered_pw = (entered_pw + get_secret()).encode()
         print(entered_pw)
         valid = bcrypt.checkpw(entered_pw, hashed_pw.encode())
         print(F'VALID {valid}')
