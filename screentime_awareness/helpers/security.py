@@ -28,6 +28,8 @@ def validate_pw(email_address: str, entered_pw: str) -> bool:
         # combine the local secret to the prompted pw and encode to bytes
         entered_pw = (get_secret() + entered_pw).encode()
         print(entered_pw)
-        return bcrypt.checkpw(entered_pw, hashed_pw.encode())
+        valid = bcrypt.checkpw(entered_pw, hashed_pw.encode())
+        print(F'VALID {valid}')
+        return valid
     except:  # on debug machine
         return False
