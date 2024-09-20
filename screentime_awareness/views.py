@@ -16,7 +16,7 @@ def home(request):
     if not request.session or 'user' not in request.session:
         # user is not logged in this session. Redirect to index
         return redirect('index')
-    context = {'username': request.session['user'].user_name}
+    context = {'username': request.session['user'].username}
     return render(request, 'screentime_awareness/home.html', context=context)
 
 def log_in_user(request):
@@ -26,11 +26,12 @@ def log_in_user(request):
     if request.POST:
         email_address = request.POST.get('email_address', None)
         pw = request.POST.get('pw', None)
-        if not email_address or not pw or not security.validate_pw(email_address, pw):
+        user = security.get_user(email_address, pw)
+        if not email_address or not pw or not user:
             return redirect('index', invalid_login=True)
         else:  # valid login. Redirect to home
             # set up a User model to save the user's information for this session
-            request.session['user'] = User(email_address)
+            request.session['user'] = user
             return render(request, 'screentime_awareness/home.html')
     else:
         print('failed to get post data from login form')

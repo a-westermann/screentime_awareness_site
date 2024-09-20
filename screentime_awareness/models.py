@@ -1,6 +1,6 @@
 from django.db import models
 
 class User:
-    def __init__(self, email: str):
+    def __init__(self, email: str, username: str):
         self.email = email
-        self.user_name = email.split('@')[0]
+        self.username = username
