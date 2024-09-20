@@ -12,9 +12,9 @@ def index(request):
     context = {'email_address': '', 'pw': ''}
     return render(request, 'screentime_awareness/index.html', context=context)
 
-def log_in(request, user_id: str, pw: str):
-    if security.validate_pw(user_id, pw):
-        print('success')
+def log_in(request):
+    if request.POST:
+        print(request.POST.get('pw', 'default_val'))
         return render(request, 'screentime_awareness/account.html')
     else:
         print('fail')
