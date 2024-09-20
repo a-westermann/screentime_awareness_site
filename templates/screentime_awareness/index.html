@@ -1,6 +1,5 @@
-<!DOCTYPE html>
 {% extends "base.html" %}
-<html lang="en">
+{% block title %}Beyond the Screen{% endblock %}
 {% block content %}
     <div class="container col-xxl-12 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-2">
@@ -26,15 +25,8 @@
         Log in or Register to discover ways to help your child beat screen addiction<br>
     </div>
 
-{#    <h2>Log in</h2>#}
-{#    <form method="post">#}
-{#    {% csrf_token %}#}
-{#    {{ form }}#}
-{#    <button type="submit">Log in</button>#}
-{#    </form>#}
-
 <div class="parent container d-flex justify-content-center align-items-center">
-        <form id='login form' method="post" action="{% url 'log_in' %}">
+        <form id='login form' method="post" action="{% url 'account' %}">
             {% csrf_token %}
             <div class="form-group">
                 <label for="inputEmail" class="text-light">Email address</label>
@@ -49,27 +41,12 @@
                 <label for="pw" typeof="string" class="text-light">Password</label>
                 <input type="password" class="form-control" id="pw" name="pw" value="{{ pw }}" placeholder="Password">
             </div>
+            {% if invalid_login %}
+                <a class="text-light text-large">Invalid email or password</a>
+            {% endif %}
             <button type="submit"
                     class="btn btn-primary" style="margin-top: 10px">Log in</button>
             <button type="submit" class="btn btn-secondary" style="margin-top: 10px">Register</button>
         </form>
-
-
-{#          <form method="post" action="{% url 'log_in' %}">#}
-{#            {% csrf_token %}#}
-{#            <table>#}
-{#              <tr>#}
-{#                <td>{{ form.username.label_tag }}</td>#}
-{#                <td>{{ form.username }}</td>#}
-{#              </tr>#}
-{#              <tr>#}
-{#                <td>{{ form.password.label_tag }}</td>#}
-{#                <td>{{ form.password }}</td>#}
-{#              </tr>#}
-{#            </table>#}
-{#            <input type="submit" value="login">#}
-{#            <input type="hidden" name="next" value="{{ next }}">#}
-{#          </form>#}
     </div>
 {% endblock%}
-</html>

@@ -17,9 +17,9 @@ def encrypt_pw(user_id: str, password: str):
     sql = f"insert into users values('{user_id}', '{hashed_pw}');"
     dbc.write(sql)
 
-def validate_pw(user_id: str, entered_pw: str) -> bool:
+def validate_pw(email_address: str, entered_pw: str) -> bool:
     dbc = DBC()
-    sql = f"select * from users where id = '{user_id}' LIMIT 1;"
+    sql = f"select * from users where id = '{email_address}' LIMIT 1;"
     hashed_pw = dbc.select(sql)[0]['hashed_password']
     # combine the local secret to the prompted pw and encode to bytes
     entered_pw = (get_secret() + entered_pw).encode()

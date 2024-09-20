@@ -29,6 +29,7 @@ header {
 .text-light{
   color: ghostwhite;
   font-family: Calibri, sans-serif;
+  text-decoration: none;
 }
 .text-light-small{
     color: ghostwhite;

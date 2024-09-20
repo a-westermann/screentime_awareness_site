@@ -5,23 +5,22 @@ from django.urls import reverse
 
 
 def index(request):
-    # context = {'secret': security.get_secret()}
-    # pw = 'Apostria1!'
-    # security.encrypt_pw('adw8122', pw)
-    # print(f"pw {pw} valid: {security.validate_pw('adw8122', pw)}")
-    context = {'email_address': '', 'pw': ''}
-    return render(request, 'screentime_awareness/index.html', context=context)
-
-def log_in(request):
-    if request.POST:
-        print(request.POST.get('pw', 'default_val'))
-        return render(request, 'screentime_awareness/account.html')
-    else:
-        print('fail')
-        return render(request, 'screentime_awareness/index.html')
+    return render(request, 'screentime_awareness/index.html')
 
 def account(request):
-    return render(request, 'screentime_awareness/account.html')
+    if request.POST:
+        email_address = request.POST.get('email_address', None)
+        pw = request.POST.get('pw', None)
+        if not email_address or not pw or not security.validate_pw(email_address, pw):
+            context = {'invalid_login': True}
+            #TODO: Forgot password here
+            return render(request, 'screentime_awareness/index.html', context=context)
+        else:  # valid login. Redirect to account center
+            # pass username? create a user object?
+            return render(request, 'screentime_awareness/account.html')
+    else:
+        print('failed to get post data from login form')
+
 
 def learn_more(request):
     return render(request, 'screentime_awareness/learn_more.html')
