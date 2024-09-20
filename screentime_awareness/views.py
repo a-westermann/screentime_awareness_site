@@ -36,6 +36,7 @@ def log_in_user(request):
             # set up a User object to save the user's information to the session
             request.session['user'] = user.to_json()
             request.session.save()
+            request.session.modified = True
             return render(request, 'screentime_awareness/home.html')
     else:
         print('failed to get post data from login form')
