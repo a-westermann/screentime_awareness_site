@@ -50,14 +50,15 @@ def register_user(request):
         # if the email is already registered, deny
         if security.check_registered(email):
             return redirect('register', already_registered=True)
+        username = request.POST.get('username', None)
         pw = request.POST.get('pw', None)
         confirm_pw = request.POST.get('confirm_pw', None)
         # validate email and password. If invalid, reload register.html
-        if not email or not pw or pw != confirm_pw:
+        if not email or not username or not pw or pw != confirm_pw:
             return redirect('register', invalid_creds=True)
         # if valid, update the db and direct them to home
         else:
-            security.add_user_to_db(email, pw)
+            security.add_user_to_db(email, pw, username)
             return render(request, 'screentime_awareness/home.html')
     else:
         print('error')

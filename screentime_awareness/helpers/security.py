@@ -7,7 +7,7 @@ def get_secret() -> str:
     secret = open("../Tokens/secret_key.txt").read().strip()
     return secret
 
-def add_user_to_db(user_id: str, password: str):
+def add_user_to_db(email: str, password: str, username: str):
     # add the local secret to the password and hash them
     salt = bcrypt.gensalt()
     # note that using bcrypt, the salt is saved into the hash itself, so no need to store separately
@@ -16,7 +16,7 @@ def add_user_to_db(user_id: str, password: str):
     print(f'salt: {salt}')
     print(f'password hashed: {hashed_pw}')
     dbc = DBC()
-    sql = f"insert into users values('{user_id}', '{hashed_pw}');"
+    sql = f"insert into users values('{email}', '{hashed_pw}', );"
     dbc.write(sql)
 
 def check_registered(email_address: str) -> bool:
