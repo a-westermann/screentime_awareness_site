@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from screentime_awareness.helpers import security
 from django.shortcuts import redirect
-from  screentime_awareness.models import User
+from screentime_awareness.models import User
+import json
 
 
 def index(request, invalid_login=False):
@@ -34,7 +35,7 @@ def log_in_user(request):
             # set up a User object to save the user's information to the session
             request.session['user'] = user.to_json()
             print(request.session['user'])
-            print(request.session['user'].username)
+            print(json.loads(request.session['user'])['username'])
             request.session.save()
             return render(request, 'screentime_awareness/home.html')
     else:
