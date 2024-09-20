@@ -36,11 +36,11 @@ def log_in_user(request):
     else:
         print('failed to get post data from login form')
 
-def register(request, invalid_creds=False, already_registerd=False):
+def register(request, invalid_creds=False, already_registered=False):
     context = {}
     if invalid_creds:
         context['invalid_creds'] = True
-    elif already_registerd:
+    elif already_registered:
         context['already_registered'] = True
     return render(request, 'screentime_awareness/register.html', context=context)
 
