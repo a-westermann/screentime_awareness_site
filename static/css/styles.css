@@ -6,6 +6,20 @@ header {
   height: 80px;
   background-color: ghostwhite;
 }
+.jumbotron-main{
+      background-image: url( '/static/origami.png' );
+      background-size: cover;
+      background-position: center;
+}
+.jumbotron-secondary{
+    background-image: url('/static/mother_kid_book.png');
+   background-size: cover;
+   background-position: bottom;
+}
+.jumbotron-tertiary{
+    background-image: url('/static/kid_quiz.png');
+    background-size: cover;
+}
 .hero {
   padding-bottom: 20%; /* = ( 600 / 1600 ) x 100 */
   background-image: url( '/static/index_bg_gradient.png' );
@@ -40,11 +54,9 @@ header {
 .stroke{
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-/*.text-light-small{*/
-/*    color: ghostwhite;*/
-/*  font-family: Calibri, sans-serif;*/
-/*  font-size: 80%;*/
-/*}*/
+.heavy-stroke{
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
 .text-faint{
   color: darkslategray;
   font-size: 80%;
@@ -59,8 +71,6 @@ header {
   background-size: cover;
   background-image: url('/static/title_bar.png');
 }
-/*@media (min-width: 600px){*/
-/*.container-narrow{*/
-/*  max-width: 250px;*/
-/*}*/
-/*}*/
+.white-space {
+  white-space: pre;
+}
