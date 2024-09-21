@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+{% block content %}
+{% if invalid_creds %}
+<br>
+<div class="container text-warning text-large text-center stroke">
+    Please ensure password is at least 6 characters, and that
+    both passwords match</div>
+{% elif already_registered %}
+<div class="container text-warning text-large text-center stroke">
+    <a href="/">There is already an account associated with that email. Please return to
+    the log in page</a>
+</div>
+{% else %}
+<div class="text-light text-large text-decoration-none text-center" style="margin: 0 50px 50px;">
+    <br>Welcome to Beyond the Screen!<br><br>
+    <a class="text-light text-small">Registering is instant and provides access to tons of free resources
+        to improve your child's social development.</a>
+</div>
+{% endif %}
+<div class="parent container d-flex justify-content-center align-items-center">
+    <form id='login form' method="post" action="{% url 'register_user' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="inputEmail" class="text-light">Email address</label>
+            <label for="email_address"></label>
+            <input type="email" class="form-control" id="email_address" name="email_address"
+                   aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-small text-faint">
+                We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="username" typeof="string" class="text-light">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label for="pw" typeof="string" class="text-light">Password</label>
+            <input type="password" class="form-control" id="pw" name="pw" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="confirm_pw" typeof="string" class="text-light">Confirm Password</label>
+            <input type="password" class="form-control" id="confirm_pw" name="confirm_pw"
+                   placeholder="Confirm Password">
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 10px">Register</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Beyond the Screen</title>
     <title>{% block title %}{% endblock %}</title>
     {% load bootstrap5 %}
     {% bootstrap_css %}
@@ -16,7 +15,7 @@
 <header class="d-flex flex-wrap justify-content-center py-1 mb-1 border-bottom">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-large
     text-dark text-decoration-none">
-        <img src="{{ STATIC_URL }}static/test_logo.png" alt="" class="d-block mx-lg-auto img-fluid" width="80">
+        <img src="/{{ STATIC_URL }}static/test_logo.png" alt="" class="d-block mx-lg-auto img-fluid" width="80">
         Beyond the Screen
     </a>
         <nav class="navbar navbar-expand-sm navbar-light" id="mainNav">
@@ -24,8 +23,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="donate">Donate</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/donate">Donate</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
