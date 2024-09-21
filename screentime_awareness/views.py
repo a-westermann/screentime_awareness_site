@@ -9,7 +9,7 @@ import json
 def index(request, invalid_login=False):
     context = {}
     if request.session and 'user' in request.session and json.loads(request.session['user']):
-        return redirect('screentime_awareness/home.html')
+        return redirect('home')
     if invalid_login:
         # TODO: Forgot password added
         context['invalid_login'] = True
