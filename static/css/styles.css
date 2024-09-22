@@ -3,53 +3,56 @@
 /*    background-size: cover; !* will stretch the image to your div size while maintaining aspect ratio *!*/
 /*}*/
 header {
-  height: 80px;
-  background-color: ghostwhite;
+    height: 80px;
+    background-color: ghostwhite;
 }
 .jumbotron-main{
-      background-image: url( '/static/origami.png' );
-      background-size: cover;
-      background-position: center;
+    background-image: url( '/static/origami.png' );
+    background-size: cover;
+    background-position: center;
 }
 .jumbotron-secondary{
     background-image: url('/static/mother_kid_book.png');
-   background-size: cover;
-   background-position: bottom;
+    background-size: cover;
+    background-position: bottom;
 }
 .jumbotron-tertiary{
     background-image: url('/static/kid_quiz.png');
     background-size: cover;
 }
 .hero {
-  padding-bottom: 20%; /* = ( 600 / 1600 ) x 100 */
-  background-image: url( '/static/index_bg_gradient.png' );
-  background-size: cover;
+    padding-bottom: 20%; /* = ( 600 / 1600 ) x 100 */
+    /*background-image: url( '/static/index_bg_gradient.png' );*/
+    /*background-size: cover;*/
 }
 .text-large{
-  font-size: 140%;
-  text-justify: inter-word;  /*doesn't work*/
+    font-size: 140%;
+    text-justify: inter-word;  /*doesn't work*/
 }
 .text-xl{
-  font-size: 350%;
-  text-justify: inter-word;  /*doesn't work*/
+    font-size: 350%;
+    text-justify: inter-word;  /*doesn't work*/
 }
 .text-small{
-  font-size: 80%;
+    font-size: 80%;
 }
 .text-dark{
-  color: darkslategrey;
-  font-family: Calibri,  sans-serif;
+    color: darkslategrey;
+    font-family: Calibri,  sans-serif;
 }
 .text-light{
-  color: ghostwhite;
-  font-family: Calibri, sans-serif;
-  text-decoration: none;
+    color: ghostwhite;
+    font-family: Calibri, sans-serif;
+    text-decoration: none;
+}
+.text-green{
+    color: green;
 }
 .text-danger{
-  color: crimson;
+    color: crimson;
 }
 .text-warning{
-  color: gold;
+    color: gold;
 }
 .stroke{
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -58,19 +61,19 @@ header {
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 .text-faint{
-  color: darkslategray;
-  font-size: 80%;
+    color: darkslategray;
+    font-size: 80%;
 }
 
 .page-header h1 {
-  margin-top: 0px;
+    margin-top: 0px;
 }
 .page-header {
-  height: 60px;
-  margin-top: 0px;
-  background-size: cover;
-  background-image: url('/static/title_bar.png');
+    height: 60px;
+    margin-top: 0px;
+    background-size: cover;
+    background-image: url('/static/title_bar.png');
 }
 .white-space {
-  white-space: pre;
+    white-space: pre;
 }
