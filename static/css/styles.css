@@ -1,7 +1,13 @@
-/*.my-image {*/
-/*    background: url('././screentime_awareness_site/media/kids_phones.jpg');*/
-/*    background-size: cover; !* will stretch the image to your div size while maintaining aspect ratio *!*/
-/*}*/
+.my-image {
+    background: url('/static/girl_phone_background.png');
+    background-size: cover; /* will stretch the image to your div size while maintaining aspect ratio */
+}
+.padding-bottom{
+    padding-bottom: 200px;
+}
+.padding-top{
+    padding-top: 50px;
+}
 header {
     height: 80px;
     background-color: ghostwhite;
@@ -29,11 +35,18 @@ header {
 .hero {
     padding-bottom: 20%; /* = ( 600 / 1600 ) x 100 */
     background-image: url( '/static/teal_gray_gradient.png' );
-    background-size: cover;
+    /*background-size: cover;*/
+    width: 100%;
+    height: auto;
+    background-repeat: repeat-x;
 }
 .text-large{
     font-size: 140%;
     text-justify: inter-word;  /*doesn't work*/
+}
+.text-larger{
+    font-size: 160%;
+    text-justify: inter-word;
 }
 .text-xl{
     font-size: 350%;
@@ -60,15 +73,21 @@ header {
 .text-warning{
     color: gold;
 }
+.text-shadow{
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
 .stroke{
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-.heavy-stroke{
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+.text-bg{
+    background: rgba(0, 0, 0, 0.05); /* dark overlay */
 }
 .text-faint{
     color: darkslategray;
     font-size: 80%;
+}
+.kerning-l{
+    font-kerning: none;
 }
 
 .page-header h1 {

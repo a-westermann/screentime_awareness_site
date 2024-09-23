@@ -9,35 +9,34 @@
         </script>
     {% endif %}
 
-    <div class="container col-xxl-12 px-4 py-5">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-2 text-green">
-            <div class="col-10 col-sm-8 col-lg-6">
-                <img src="/{{ STATIC_URL }}static/girl_phone_cutout.png" class="d-block mx-lg-auto img-fluid"
-                     alt="" width="1730" height="931" loading="lazy">
-            </div>
-            <div class="col-lg-6">
-                <h1 class="text-xl fw-bold lh-1 mb-3">Beyond<br> the Screen</h1>
-                <p class="text-large">This is where a brief explanation of the issue, followed by the mission
-                    statement will go.
-                    <br><br>It should be brief but hook viewers into signing up.</p>
-                <div class = "row">
-                    <div class = "col-md-4">
-                        <a href="#login_box" class="btn buttons btn-lg" style="margin-top: 5px">Get Started</a>
+    <div class="">
+        <div class="container col-xxl-20 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-2 text-light text-shadow fw-bold
+            kerning-l my-image">
+                <div class="col-lg-6  padding-bottom padding-top">
+                    <h1 class="text-xl fw-bold lh-1 mb-3">Beyond<br> the Screen</h1>
+                    <p class="text-larger">Over 100% of kids who use phones die within 1 second.
+                    <br><br>Are you doing everything you can to protect your child?</p>
+                    <div class = "row padding-top">
+                        <div class = "col-md-4">
+                            <a href="#login_box" class="btn buttons btn-lg text-large" style="margin-top: 5px">
+                                Get Started</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="login_box"  class="text-light text-large text-center" style="margin: 350px 20px 50px;">
-        Log in or Register to discover ways to help your child beat screen addiction<br>
+        <div id="login_box" class="text-light text-shadow text-large text-center " style="margin: 350px 20px 50px;">
+            Log in or Register to discover ways to help your child beat screen addiction<br>
+        </div>
     </div>
 
     <div class="parent container d-flex justify-content-center align-items-center">
         <form id='login form' method="post" action="{% url 'log_in_user' %}">
             {% csrf_token %}
             <div class="form-group">
-                <label for="inputEmail" class="text-light">Email address</label>
+                <label for="inputEmail" class="">Email address</label>
                 <label for="email_address"></label>
                 <input type="email" class="form-control" id="email_address" name="email_address"
                        aria-describedby="emailHelp" placeholder="Enter email">
@@ -45,11 +44,11 @@
                     We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
-                <label for="pw" typeof="string" class="text-light">Password</label>
+                <label for="pw" typeof="string" class="">Password</label>
                 <input type="password" class="form-control" id="pw" name="pw" placeholder="Password">
             </div>
             {% if invalid_login %}
-                <a class="text-warning stroke text-large text-decoration-none">Invalid email or password</a>
+                <a class="text-warning text-shadow text-large text-decoration-none">Invalid email or password</a>
             {% endif %}
             <button type="submit" class="btn btn-primary" style='margin-top: 10px'>Log in</button>
             <a href="/register">
