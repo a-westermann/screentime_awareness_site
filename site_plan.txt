@@ -7,3 +7,26 @@
 
 >Logging in /register
 >>If Log in does not work, redirect users to a page dedicated to log in and register
+
+
+To modernize your website, here are a few design tips:
+
+    Minimalist Design: Avoid clutter. Use plenty of white space to give elements room to breathe. Focus on clean, simple layouts that emphasize readability and usability.
+
+    Mobile Responsiveness: Ensure the site is fully responsive across devices. Use a mobile-first approach since most traffic now comes from smartphones.
+
+    Modern Fonts and Typography: Use contemporary, web-safe fonts like Google Fonts. Avoid overly decorative or outdated typefaces. Modern typography tends to be simple and readable.
+
+    High-Quality Images and Videos: Use high-resolution images and videos, but ensure they're optimized for fast loading. Hero images, fullscreen background visuals, and subtle animations can enhance the aesthetic.
+
+    Flat or Material Design: Go for a flat design (simple, two-dimensional) or material design (inspired by the physical world but simplified for digital use) instead of skeuomorphic styles, which are outdated.
+
+    Consistent Color Scheme: Use a harmonious color palette, often centered around a primary color with complementing accents. You can use tools like Adobe Color or Coolors to find modern palettes.
+
+    Custom Icons and Buttons: Use sleek, vector icons. Platforms like FontAwesome or custom SVGs can give your site a modern touch.
+
+    Animation and Micro-Interactions: Small animations (like hover effects or transitions) can create a polished and engaging experience, but avoid overuse to keep things professional.
+
+    Grid-Based Layouts: Use a grid-based layout for better alignment and structure. This will ensure consistency across devices.
+
+    Dark Mode Option: Offering a dark mode can give users a modern and customizable experience.

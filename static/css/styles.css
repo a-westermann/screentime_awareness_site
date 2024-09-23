@@ -6,6 +6,12 @@ header {
     height: 80px;
     background-color: ghostwhite;
 }
+.buttons {
+    background-color: coral;
+    border-color: white;
+    color: white;
+    font-weight: bold;
+}
 .jumbotron-main{
     background-image: url( '/static/origami.png' );
     background-size: cover;
@@ -22,8 +28,8 @@ header {
 }
 .hero {
     padding-bottom: 20%; /* = ( 600 / 1600 ) x 100 */
-    /*background-image: url( '/static/index_bg_gradient.png' );*/
-    /*background-size: cover;*/
+    background-image: url( '/static/teal_gray_gradient.png' );
+    background-size: cover;
 }
 .text-large{
     font-size: 140%;
