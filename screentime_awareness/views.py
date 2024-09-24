@@ -81,6 +81,9 @@ def register_user(request):
 def account(request):
     return render(request, 'screentime_awareness/account.html')
 
+def activities(request):
+    return render(request, 'screentime_awareness/activities.html')
+
 def learn_more(request):
     return render(request, 'screentime_awareness/learn_more.html')
 

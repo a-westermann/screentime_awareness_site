@@ -48,6 +48,7 @@ header {
 }
 .jumbotron-main{
     background-image: url( '/static/origami.png' );
+    link: url('/screentime_awareness_site/activities.html/');
     background-size: cover;
     background-position: center;
 }
