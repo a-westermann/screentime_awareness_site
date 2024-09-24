@@ -1,28 +1,30 @@
 {% extends 'base.html' %}
 {% block title %}Beyond the Screen{% endblock %}
 {% block content %}
-<a class="text-light text-large text-decoration-none">
-    <br>&nbsp&nbspWelcome, {{ username }}.
-</a>
+    <p class=" text-center">
+        <a class="text-light text-shadow text-larger text-decoration-none">
+            <br>Welcome, {{ username }}!
+            <br>Here you can find many fun resources to help grow your child's social development healthily.
+        </a>
+    </p>
 
-<!--jumbo trons-->
-<div class="container py-4 text-light text-large stroke">
+    <!--jumbo trons-->
+    <div class="container py-4 text-light text-large stroke text-shadow">
 
-    <div class="p-5 mb-4 bg-body-tertiary rounded-3 jumbotron-main">
-        <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Activities</h1>
-            <p class="col-md-8 fs-4">It can be difficult to keep a child entertained without electronics.
-                Visit this page for activities and fun ideas for you and your child.</p>
-            <a href="#">
-                <button class="btn btn-primary btn-lg btn-outline-light" type="button">Find Activites</button>
-            </a>
+        <div class="row align-items-md-stretch p-2 mb-4 bg-body-tertiary">
+            <div class="container-fluid py-5 rounded-3 jumbotron-main">
+                <h1 class="display-5 fw-bold">Activities</h1>
+                <p class="col-md-8 fs-4">It can be difficult to keep a child entertained without electronics.
+                    Visit this page for activities and fun ideas for you and your child.</p>
+                <a href="#">
+                    <button class="btn btn-primary btn-lg btn-outline-light" type="button">Find Activites</button>
+                </a>
+            </div>
         </div>
-    </div>
 
-    <div class="row align-items-md-stretch">
-        <div class="col-md-6 rounded-3 jumbotron-secondary">
-            <div class="h-100 p-5 text-bg-dark rounded-3">
-                <h2>Swap Advice</h2>
+        <div class="row align-items-md-stretch p-2 mb-4 bg-body-tertiary">
+            <div class="container-fluid py-5 rounded-3 jumbotron-secondary">
+                <h1 class="display-5 fw-bold">Swap Advice</h1>
                 <p>We can put you in touch with other parents who care as deeply as you. Share
                     what you've found that helps your child.</p>
                 <a href="#">
@@ -30,9 +32,9 @@
                 </a>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="h-100 p-5 bg-body-tertiary border rounded-3 jumbotron-tertiary">
-                <h2>Learn more</h2>
+        <div class="row align-items-md-stretch p-2 mb-4 bg-body-tertiary">
+            <div class="container-fluid py-5 rounded-3 jumbotron-tertiary">
+                <h1 class="display-5 fw-bold">Learn more</h1>
                 <p>Extended screentime may be hampering your child's development
                     in more ways than you know. Complete this interactive quiz to learn more.</p>
                 <a href="#">
@@ -41,5 +43,4 @@
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

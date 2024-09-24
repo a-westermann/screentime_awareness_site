@@ -6,20 +6,25 @@ from screentime_awareness.models import User
 import json
 
 
-def index(request, invalid_login=False):
+def index(request, invalid_login=False, logout=False):
     context = {}
-    if request.session and 'user' in request.session and json.loads(request.session['user']):
+    if logout and request.session and 'user' in request.session:
+        print('logging out')
+        request.session['user'] = None
+    if request.session and 'user' in request.session and request.session['user']\
+            and json.loads(request.session['user']):
         return redirect('home')
+    else:
+        context['logged_out'] = True
     if invalid_login:
         # TODO: Forgot password added
         context['invalid_login'] = True
     return render(request, 'screentime_awareness/index.html', context=context)
 
 def home(request):
-    if not request.session or 'user' not in request.session:
+    if not request.session or 'user' not in request.session or not request.session['user']:
         # user is not logged in this session. Redirect to index
         return redirect('index')
-    print(request.session['user'])
     username = json.loads(request.session['user'])['username']
     context = {'username': username}
     return render(request, 'screentime_awareness/home.html', context=context)

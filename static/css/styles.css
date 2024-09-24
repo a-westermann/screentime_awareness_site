@@ -1,4 +1,4 @@
-.my-image {
+.girl-phone-image {
     background: url('/static/girl_phone_background.png');
     background-size: cover; /* will stretch the image to your div size while maintaining aspect ratio */
 }
@@ -11,6 +11,34 @@
 header {
     height: 80px;
     background-color: ghostwhite;
+}
+.front{
+    z-index: 1100;
+}
+.navbar.navbar-inverse {
+  background: transparent;
+  position: absolute;
+  width: 40%;
+  z-index: 1080;
+}
+.dropdown-menu{
+    max-width: 40px;
+    padding-left: 5px;
+    border-style: solid;
+    border-color: darkslategrey;
+}
+.margin-right{
+    margin-right: 10px;
+}
+.margin-left{
+    margin-left: 10px;
+}
+.justify-content-right{
+    justify-content: right;
+}
+.align-right{
+    text-align: right;
+    list-style: none;
 }
 .buttons {
     background-color: coral;
@@ -31,6 +59,7 @@ header {
 .jumbotron-tertiary{
     background-image: url('/static/kid_quiz.png');
     background-size: cover;
+    background-position: center;
 }
 .hero {
     padding-bottom: 20%; /* = ( 600 / 1600 ) x 100 */
@@ -45,6 +74,8 @@ header {
     text-justify: inter-word;  /*doesn't work*/
 }
 .text-larger{
+/*    color: white;*/
+/*mix-blend-mode: difference;*/
     font-size: 160%;
     text-justify: inter-word;
 }
@@ -63,6 +94,9 @@ header {
     color: ghostwhite;
     font-family: Calibri, sans-serif;
     text-decoration: none;
+}
+.text-light-green{
+    color: mediumseagreen;
 }
 .text-green{
     color: green;
