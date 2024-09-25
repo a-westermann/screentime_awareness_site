@@ -85,7 +85,10 @@ def activities(request):
     return render(request, 'screentime_awareness/activities.html')
 
 def learn_more(request):
-    return render(request, 'screentime_awareness/learn_more.html')
+    context = {}
+    if not request.session or 'user' not in request.session or not request.session['user']:
+        context['logged_out_learn_more'] = True
+    return render(request, 'screentime_awareness/learn_more.html', context=context)
 
 def donate(request):
     return render(request, 'screentime_awareness/donate.html')

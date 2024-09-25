@@ -120,6 +120,13 @@ header {
 .text-green{
     color: green;
 }
+.chocolate{
+    color: chocolate;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+.white-shadow{
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
 .text-danger{
     color: crimson;
 }

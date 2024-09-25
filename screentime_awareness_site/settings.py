@@ -119,6 +119,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+SESSION_COOKIE_AGE = 30 * 60  # expire session after 30 minutes of no new cookies
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/

@@ -1,7 +1,7 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+{% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>{% block title %}{% endblock %}</title>
@@ -46,8 +46,10 @@
                     </a>
                 <!-- Dropdown for Account. If not logged in, it just jumps you to the login box -->
                     <div class="dropdown-menu dropdown-menu-end bg-light" aria-labelledby="accountDropdown">
-                        {% if logged_out %}
-                            <a class="dropdown-item" href="#login_box">Account</a>
+                        {% if logged_out_learn_more %}
+                            <a class="dropdown-item" href="/#login_box">Log In</a>
+                        {% elif logged_out %}
+                            <a class="dropdown-item" href="/#login_box">Account</a>
                         {% else %}
                             <a class="dropdown-item" href="/account/">Account</a>
                             <div class="dropdown-divider"></div>
