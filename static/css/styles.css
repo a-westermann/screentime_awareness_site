@@ -48,7 +48,7 @@ header {
 }
 .jumbotron-main{
     background-image: url( '/static/origami.png' );
-    link: url('/screentime_awareness_site/activities.html/');
+    /*link: url('/activities/');*/
     background-size: cover;
     background-position: center;
 }
@@ -61,6 +61,24 @@ header {
     background-image: url('/static/kid_quiz.png');
     background-size: cover;
     background-position: center;
+}
+.nih{
+    background-image: url('/static/NIH-Emblem.png');
+    background-size: cover;
+    background-position: center;
+    background-color: rgb(128, 128, 128);
+}
+.fairplay{
+    background-image: url('/static/fairplay_emblem.png');
+    background-size: cover;
+    background-position: left;
+    background-color: rgb(128, 128, 128);
+}
+.healthychildren{
+    background-image: url('/static/healthychildren_emblem.png');
+    background-size: cover;
+    background-position: left;
+    background-color: rgb(128, 128, 128);
 }
 .hero {
     padding-bottom: 20%; /* = ( 600 / 1600 ) x 100 */
