@@ -80,7 +80,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'screentime_awareness_site.wsgi.application'
 
 # MEDIA_ROOT = os.path.join(os.curdir, 'media')
-MEDIA_ROOT = "/andweste/screentime_awareness_site/screentime_awareness_site/media/"
+MEDIA_ROOT = "/screentime_awareness_site/screentime_awareness_site/media/"
 MEDIA_URL = "/media/"
 
 # Database
