@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-by2q8kl9a&tb_!)-r_*0s1#w_74_+1mzkyhn7qqi1_19^gmx_d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.gobeyondthescreen.org'
+ALLOWED_HOSTS = ['52.15.62.202',  # gobeyondthescreen.org aws ec2 instance
                  '192.168.1.31',
                  '192.168.1.229',
                  '192.168.1.87',
