@@ -30,6 +30,8 @@ SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 ALLOWED_HOSTS = ['18.222.1.149',  # gobeyondthescreen.org aws ec2 instance public
+                 'www.gobeyondthescreen.org',
+                 '172.31.7.125',  # private ip, prob not needed
                  '192.168.1.31',
                  '192.168.1.229',
                  '192.168.1.87',
