@@ -22,6 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-by2q8kl9a&tb_!)-r_*0s1#w_74_+1mzkyhn7qqi1_19^gmx_d')
 DEBUG = os.environ.get('DJANGO_SECRET_KEY') is None
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 15
 
 ALLOWED_HOSTS = ['52.15.62.202',  # gobeyondthescreen.org aws ec2 instance
                  '192.168.1.31',
