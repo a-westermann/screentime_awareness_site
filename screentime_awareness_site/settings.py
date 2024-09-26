@@ -29,7 +29,7 @@ SECURE_HSTS_SECONDS = 15
 SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
-ALLOWED_HOSTS = ['52.15.62.202',  # gobeyondthescreen.org aws ec2 instance
+ALLOWED_HOSTS = ['18.222.1.149',  # gobeyondthescreen.org aws ec2 instance public
                  '192.168.1.31',
                  '192.168.1.229',
                  '192.168.1.87',
