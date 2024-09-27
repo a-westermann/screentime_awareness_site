@@ -133,7 +133,7 @@ SESSION_COOKIE_AGE = 30 * 60  # expire session after 30 minutes of no new cookie
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 # STATIC_ROOT = 'home/ubuntu/screentime_awareness_site/static/'
-STATIC_ROOG = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, '/static/'),
                     ]
