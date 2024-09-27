@@ -132,6 +132,7 @@ SESSION_COOKIE_AGE = 30 * 60  # expire session after 30 minutes of no new cookie
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static',
                     ]
