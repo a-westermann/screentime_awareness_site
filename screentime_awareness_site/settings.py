@@ -132,9 +132,9 @@ SESSION_COOKIE_AGE = 30 * 60  # expire session after 30 minutes of no new cookie
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+# Static Root is not really needed. collectstatic is used to collect all static files from
+# 3rd party libraries, etc into the folder that the server will serve from
 # STATIC_ROOT = '/home/ubuntu/screentime_awareness_site/'
-#STATIC_ROOT = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')
                     ]
