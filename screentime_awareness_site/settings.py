@@ -135,7 +135,7 @@ SESSION_COOKIE_AGE = 30 * 60  # expire session after 30 minutes of no new cookie
 # STATIC_ROOT = 'home/ubuntu/screentime_awareness_site/static/'
 STATIC_ROOT = '/home/ubuntu/screentime_awareness_site/static/'
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR/'static/',
+STATICFILES_DIRS = [BASE_DIR,
                     ]
 
 # Default primary key field type
