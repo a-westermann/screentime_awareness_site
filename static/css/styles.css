@@ -92,6 +92,10 @@ header {
     font-size: 140%;
     text-justify: inter-word;  /*doesn't work*/
 }
+.text-blend{
+    color: white;
+    mix-blend-mode: difference;
+}
 .text-larger{
 /*    color: white;*/
 /*mix-blend-mode: difference;*/
