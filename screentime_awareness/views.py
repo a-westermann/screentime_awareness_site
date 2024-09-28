@@ -88,7 +88,6 @@ def activities(request):
     printables = dbc.select("select * from activities where activity_type = 'printable'")
     context = {
         'printables' : printables,
-        'printable_len': range(len(printables)),
     }
     return render(request, 'screentime_awareness/activities.html', context=context)
 

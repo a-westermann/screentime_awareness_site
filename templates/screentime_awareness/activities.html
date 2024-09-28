@@ -41,19 +41,19 @@
     <br><br><br>
     <!-- Activity accordians -->
     <p id="printables" class="lead fw-bold text-large white-shadow text-dark" style="margin-left:20px">Printable Activity Sheets</p>
-    {% for i in printable_len %}
+    {% for printable in printables %}
         <div class="accordion" id="accordionExample">
         <div class="accordion-item btn-outline-secondary">
             <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <a class="lead fw-bold text-decoration-none text-dark">printables[i]['title']</a>
+                    <a class="lead fw-bold text-decoration-none text-dark">{{ printable.title }}</a>
                 </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="accordion-body">
                     printables[i]['description]]
                     <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px"
-                               onclick="window.open(printables[i]['link'])"
+                               onclick="window.open({{ printable.link }})"
                                role="button">Download</a>
                 </div>
             </div>
