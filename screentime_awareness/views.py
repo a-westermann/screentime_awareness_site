@@ -82,6 +82,9 @@ def account(request):
     return render(request, 'screentime_awareness/account.html')
 
 def activities(request):
+    printables =
+    context = {}
+
     return render(request, 'screentime_awareness/activities.html')
 
 def learn_more(request):
