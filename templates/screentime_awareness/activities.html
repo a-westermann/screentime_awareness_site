@@ -39,130 +39,51 @@
 
 
     <br><br><br>
-    <!-- Activity accordians -->
+    <!-- Printables According -->
     <p id="printables" class="lead fw-bold text-large white-shadow text-dark" style="margin-left:20px">Printable Activity Sheets</p>
     {% for printable in printables %}
         <div class="accordion" id="accordionExample">
-        <div class="accordion-item btn-outline-secondary">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <a class="lead fw-bold text-decoration-none text-dark">{{ printable.title }}</a>
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="accordion-body">
-                    {{ printable.description }}
-                    <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px"
-                               onclick= "window.open('{{ printable.link  }}')"
-                               role="button">Download</a>
+            <div class="accordion-item btn-outline-secondary">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <a class="lead fw-bold text-decoration-none text-dark">{{ printable.title }}</a>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="accordion-body">
+                        {{ printable.description }}
+                        <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px"
+                                   onclick= "window.open('{{ printable.link  }}')"
+                                   role="button">Download</a>
+                    </div>
                 </div>
             </div>
         </div>
-
     {% endfor %}
 
-
-{#    #}
-{#    <div class="accordion" id="accordionExample">#}
-{#        <div class="accordion-item btn-outline-secondary">#}
-{#            <h2 class="accordion-header" id="headingOne">#}
-{#                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">#}
-{#                    <a class="lead fw-bold text-decoration-none text-dark">Animal Coloring Book</a>#}
-{#                </button>#}
-{#            </h2>#}
-{#            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-parent="#accordionExample">#}
-{#                <div class="accordion-body">#}
-{#                    <strong>Free downloadable Animal coloring book</strong><br>Download this free cute coloring book. Coloring books are great building blocks for imagination, concentration, and even confidence and pride. They have also been shown to provide stress relief to children.#}
-{#                    <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px"#}
-{#                               onclick="window.open('https://gobeyondthescreen.org/{{STATIC_URL}}static/Animal Coloring Book.pdf')"#}
-{#                               role="button">Download</a>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{##}
-{##}
-{#        <div class="accordion-item btn-outline-secondary">#}
-{#            <h2 class="accordion-header" id="headingTwo">#}
-{#                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">#}
-{#                    Activity 2#}
-{#                </button>#}
-{#            </h2>#}
-{#            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">#}
-{#                <div class="accordion-body">#}
-{#                    <strong>This is the 2nd activity.</strong><br>Here we could have a link to a printable pdf, or instructions on something with pictures.#}
-{#                    <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px" href="#"#}
-{#                               onclick="window.open('https://chocolate.com/','_blank')"#}
-{#                               role="button">Activity Link</a>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#        <div class="accordion-item btn-outline-secondary">#}
-{#            <h2 class="accordion-header" id="headingThree">#}
-{#                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">#}
-{#                    Activity 3#}
-{#                </button>#}
-{#            </h2>#}
-{#            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-parent="#accordionExample">#}
-{#                <div class="accordion-body">#}
-{#                    <strong>This is the 3rd activity.</strong><br>Here we could have a link to a printable pdf, or instructions on something with pictures.#}
-{#                    <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px" href="#"#}
-{#                               onclick=" window.open('https://chocolate.com/','_blank')"#}
-{#                               role="button">Activity Link</a>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
 
 
     <!--Acordian 2 -->
     <br><br>
     <p id="ideas" class="lead fw-bold text-large white-shadow text-dark" style="margin-left:20px">Text Ideas? Or Links to other sites?</p>
-    <div class="accordion" id="accordionExample2">
-        <div class="accordion-item btn-outline-secondary">
-            <h2 class="accordion-header" id="headingOne2">
-                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
-                    Activity 1
-                </button>
-            </h2>
-            <div id="collapseOne2" class="accordion-collapse collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>This is the first activity.</strong><br>Here we could have a link to a printable pdf, or instructions on something with pictures.
-                    <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px" href="#"
-                               onclick=" window.open('https://chocolate.com/','_blank')"
-                               role="button">Activity Link</a>
+    {% for idea in ideas %}
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item btn-outline-secondary">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <a class="lead fw-bold text-decoration-none text-dark">{{ idea.title }}</a>
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="accordion-body">
+                        {{ idea.description }}
+                        <a>Do we need a link to anything for this?</a>
+{#                        <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px"#}
+{#                                   onclick= "window.open('{{ idea.link  }}')"#}
+{#                                   role="button">Download</a>#}
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="accordion-item btn-outline-secondary">
-            <h2 class="accordion-header" id="headingTwo2">
-                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo2" aria-expanded="true" aria-controls="collapseTwo2">
-                    Activity 2
-                </button>
-            </h2>
-            <div id="collapseTwo2" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>This is the 2nd activity.</strong><br>Here we could have a link to a printable pdf, or instructions on something with pictures.
-                    <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px" href="#"
-                               onclick=" window.open('https://chocolate.com/','_blank')"
-                               role="button">Activity Link</a>
-                </div>
-            </div>
-        </div>
-        <div class="accordion-item btn-outline-secondary">
-            <h2 class="accordion-header" id="headingThree2">
-                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseThree2" aria-expanded="true" aria-controls="collapseThree2">
-                    Activity 3
-                </button>
-            </h2>
-            <div id="collapseThree2" class="accordion-collapse collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>This is the 3rd activity.</strong><br>Here we could have a link to a printable pdf, or instructions on something with pictures.
-                    <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px" href="#"
-                               onclick=" window.open('https://chocolate.com/','_blank')"
-                               role="button">Activity Link</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 {% endblock %}

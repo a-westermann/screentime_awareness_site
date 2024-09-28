@@ -86,8 +86,10 @@ def activities(request):
     # What would a singleton do for multiple users being logged in at once?
     dbc = db.DBC()
     printables = dbc.select("select * from activities where activity_type = 'printable'")
+    ideas = dbc.select("select * from activities where activity_type = 'idea'")
     context = {
         'printables' : printables,
+        'ideas' : ideas,
     }
     return render(request, 'screentime_awareness/activities.html', context=context)
 
