@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from screentime_awareness.helpers import security
+from screentime_awareness.helpers import security, db
 from django.shortcuts import redirect
 from screentime_awareness.models import User
 import json
@@ -82,10 +82,15 @@ def account(request):
     return render(request, 'screentime_awareness/account.html')
 
 def activities(request):
-    printables =
-    context = {}
-
-    return render(request, 'screentime_awareness/activities.html')
+    # Should I make a new DBC instance every time I need one? Or use a singleton paradigm?
+    # What would a singleton do for multiple users being logged in at once?
+    dbc = db.DBC()
+    printables = dbc.select("select * from activities where activity_type = 'printable'")
+    context = {
+        'printables' : printables,
+        'printable_len': range(len(printables)),
+    }
+    return render(request, 'screentime_awareness/activities.html', context=context)
 
 def learn_more(request):
     context = {}
