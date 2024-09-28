@@ -51,9 +51,9 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="accordion-body">
-                    printables[i]['description]]
+                    {{ printable.description }}
                     <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px"
-                               onclick="window.open({{ printable.link }})"
+                               onclick= {{ "window.open( printable.link )"}}
                                role="button">Download</a>
                 </div>
             </div>
