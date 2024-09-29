@@ -42,7 +42,6 @@
     <!-- Printables According -->
     <p id="printables" class="lead fw-bold text-large white-shadow text-dark" style="margin-left:20px">Printable Activity Sheets</p>
     {% for printable in printables %}
-<a href="printable-{{forloop.counter}}">asdfasdfasdf</a>
         <div class="accordion" id="printable-{{ forloop.counter }}">
             <div class="accordion-item btn-outline-secondary">
                 <h2 class="accordion-header" id="printable-heading-{{ forloop.counter }}">
@@ -53,7 +52,7 @@
                     </button>
                 </h2>
                 <div id="printable-collapse-{{ forloop.counter }}" class="accordion-collapse collapse"
-                     aria-labelledby="printable-heading-{{ forloop.counter }}" data-parent="#accordionExample">
+                     aria-labelledby="printable-heading-{{ forloop.counter }}" data-parent="#printable-{{ forloop.counter }}">
                     <div class="accordion-body">
                         {{ printable.description }}
                         <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px"
@@ -82,9 +81,9 @@
                     <div class="accordion-body">
                         {{ idea.description }}
                         <a>Do we need a link to anything for this?</a>
-{#                        <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px"#}
-{#                                   onclick= "window.open('{{ idea.link  }}')"#}
-{#                                   role="button">Download</a>#}
+<!--{#                        <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px"#}-->
+<!--{#                                   onclick= "window.open('{{ idea.link  }}')"#}-->
+<!--{#                                   role="button">Download</a>#}-->
                     </div>
                 </div>
             </div>
