@@ -34,10 +34,10 @@ def log_in_user(request):
     # Upon success, it redirects them to the home page
     # Failure reloads the login page for them to try again, and displays info about the failed login attempt
     if request.POST:
-        email_address = request.POST.get('email_address', None)
+        email_or_username = request.POST.get('email_address_username', None)
         pw = request.POST.get('pw', None)
-        user = security.get_user(email_address, pw)
-        if not email_address or not pw or not user:
+        user = security.get_user(email_or_username, pw)
+        if not email_or_username or not pw or not user:
             return redirect('index', invalid_login=True)
         else:  # valid login. Redirect to home
             # set up a User object to save the user's information to the session
