@@ -51,8 +51,9 @@
         <form id='login form' method="post" action="{% url 'log_in_user' %}">
             {% csrf_token %}
             <div class="form-group">
-                <label for="email_adress_user" class="">Email address / username</label>
-                <input type="text" maxlength="50" class="form-control" id="email_adress_user" name="email_adress_user"
+                <label for="email_adress_username" class="">Email address / username</label>
+                <input type="text" maxlength="50" class="form-control" id="email_adress_username"
+                       name="email_adress_username"
                        aria-describedby="emailHelp" placeholder="Enter email or username">
                 <small id="emailHelp" class="form-text text-small text-faint">
                     We'll never share your email with anyone else.</small>
