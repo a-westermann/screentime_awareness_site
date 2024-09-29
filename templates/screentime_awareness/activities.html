@@ -10,7 +10,6 @@
             </div>
         </a>
     </div>
-<a class="lead">HELLO ASHLEY</a>
     <div class="text-center chocolate text-decoration-none fw-bold">
         <p class="text-large">We've put together a ton of fun activities geared toward healthy social development.
             <br><br>See what we have for you and your child to enjoy together!
@@ -43,14 +42,18 @@
     <!-- Printables According -->
     <p id="printables" class="lead fw-bold text-large white-shadow text-dark" style="margin-left:20px">Printable Activity Sheets</p>
     {% for printable in printables %}
-        <div class="accordion" id="accordionExample">
+        <div class="accordion" id="printable-{{ forloop.counter }}">
             <div class="accordion-item btn-outline-secondary">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <h2 class="accordion-header" id="printable-heading-{{ forloop.counter }}">
+                    <button class="accordion-button collapsed" type="button" data-toggle="collapse"
+                            data-target="#printable-collapse-{{ forloop.counter }}" aria-expanded="true"
+                            aria-controls="printable-collapse-{{ forloop.counter }}">
                         <a class="lead fw-bold text-decoration-none text-dark">{{ printable.title }}</a>
                     </button>
+                    <a href="printable-{{forloop.counter}}"></a>
                 </h2>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div id="printable-collapse-{{ forloop.counter }}" class="accordion-collapse collapse"
+                     aria-labelledby="printable-heading-{{ forloop.counter }}" data-parent="#accordionExample">
                     <div class="accordion-body">
                         {{ printable.description }}
                         <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px"
@@ -68,7 +71,7 @@
     <br><br>
     <p id="ideas" class="lead fw-bold text-large white-shadow text-dark" style="margin-left:20px">Text Ideas? Or Links to other sites?</p>
     {% for idea in ideas %}
-        <div class="accordion" id="accordionExample">
+        <div class="accordion" id="idea-">
             <div class="accordion-item btn-outline-secondary">
                 <h2 class="accordion-header" id="headingTwo">
                     <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
