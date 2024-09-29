@@ -42,6 +42,7 @@
     <!-- Printables According -->
     <p id="printables" class="lead fw-bold text-large white-shadow text-dark" style="margin-left:20px">Printable Activity Sheets</p>
     {% for printable in printables %}
+<a href="printable-{{forloop.counter}}">asdfasdfasdf</a>
         <div class="accordion" id="printable-{{ forloop.counter }}">
             <div class="accordion-item btn-outline-secondary">
                 <h2 class="accordion-header" id="printable-heading-{{ forloop.counter }}">
@@ -50,7 +51,6 @@
                             aria-controls="printable-collapse-{{ forloop.counter }}">
                         <a class="lead fw-bold text-decoration-none text-dark">{{ printable.title }}</a>
                     </button>
-                    <a href="printable-{{forloop.counter}}"></a>
                 </h2>
                 <div id="printable-collapse-{{ forloop.counter }}" class="accordion-collapse collapse"
                      aria-labelledby="printable-heading-{{ forloop.counter }}" data-parent="#accordionExample">
