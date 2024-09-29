@@ -11,6 +11,10 @@
     <a href="/">There is already an account associated with that email. Please return to
     the log in page</a>
 </div>
+{% elif bad_chars %}
+<div class="container text-warning text-large text-center text-dark white-shadow">
+    <a>Please do not use special characters</a>
+</div>
 {% else %}
 <div class="text-large text-decoration-none text-center text-dark white-shadow" style="margin: 0 50px 50px;">
     <br>Welcome to Beyond the Screen!<br><br>

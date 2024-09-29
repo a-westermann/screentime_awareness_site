@@ -48,12 +48,15 @@ def log_in_user(request):
     else:
         print('failed to get post data from login form')
 
-def register(request, invalid_creds=False, already_registered=False):
+def register(request, invalid_creds=False, already_registered=False,
+             bad_chars=False):
     context = {}
     if invalid_creds:
         context['invalid_creds'] = True
     elif already_registered:
         context['already_registered'] = True
+    elif bad_chars:
+        context['bad_chars'] = True
     return render(request, 'screentime_awareness/register.html', context=context)
 
 def register_user(request):
@@ -65,9 +68,13 @@ def register_user(request):
         username = request.POST.get('username', None)
         pw = request.POST.get('pw', None)
         confirm_pw = request.POST.get('confirm_pw', None)
+        bad_chars = ['~', ' ', '!', '%', '^', '&', '(', ')', '-', '{', '}',
+                     '\'', '.', '\\', '~']
         # validate email and password. If invalid, reload register.html
         if not email or not username or not pw or pw != confirm_pw:
             return redirect('register', invalid_creds=True)
+        elif len([c for c in username if c in bad_chars]) > 0:
+            return redirect('register', bad_chars=True)
         # if valid, update the db and direct them to home
         else:
             security.add_user_to_db(email, pw, username)
