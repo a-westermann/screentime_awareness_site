@@ -11,6 +11,7 @@ def email_pw_recovery(email_address: str):
     #  you can select the dbo.user record by joining on the link uid table
     # Set up a regular process that expires the links in the db after x minutes
     # Clear the records out when they expire so the table is empty by default
+    print(f'sending password recovery email to {email_address}')
     em = EmailMessage(subject='Go Beyond the Screen Password Recovery',
         body='We received a request to reset your password for '
                 'gobeyondthescreen.org.'
