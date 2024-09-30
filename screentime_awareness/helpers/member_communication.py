@@ -21,3 +21,4 @@ def email_pw_recovery(email_address: str):
                 'email.',
         from_email='support@gobeyondthescreen.com',
         to=[email_address])
+    em.send()
