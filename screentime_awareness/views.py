@@ -8,6 +8,9 @@ import json
 
 def index(request, invalid_login=False, logout=False):
     context = {}
+    server = request.META.get('wsgi.file_wrapper', None)
+    if server is not None and server.__module__ == 'django.core.servers.basehttp':
+        context['dev'] = True
     if logout and request.session and 'user' in request.session:
         print('logging out')
         request.session['user'] = None
