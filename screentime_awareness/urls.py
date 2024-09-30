@@ -18,6 +18,7 @@ urlpatterns = [
     # get sent a url with different combos of parameters
     path('forgot_pw/not_found=<not_found>/', views.forgot_pw, name='forgot_pw'),
     path('forgot_pw/sent_recovery=<sent_recovery>/', views.forgot_pw, name='forgot_pw'),
+    path('forgot_pw_submit', views.forgot_pw_submit, name='forgot_password_s'),
     path('activities/', views.activities, name='activities'),
     path('learnmore/', views.learn_more, name='learn_more'),
     path('donate/', views.donate, name='donate')
