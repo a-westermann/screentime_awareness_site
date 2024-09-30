@@ -150,5 +150,5 @@ SERVER_EMAIL = 'a.westermann.19@gmail.com'  # 'support@gobeyondthescreen.org'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'a.westermann.19@gmail.com'
-# EMAIL_HOST_PASSWORD = 'P@ssw0rd5'
+EMAIL_HOST_USER = 'a.westermann.19@gmail.com'
+EMAIL_HOST_PASSWORD = open('email_pw').read().strip()
