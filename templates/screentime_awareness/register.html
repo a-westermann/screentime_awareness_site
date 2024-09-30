@@ -27,8 +27,7 @@
     <form id='login form' method="post" action="{% url 'register_user' %}">
         {% csrf_token %}
         <div class="form-group">
-            <label for="inputEmail" class="text-dark white-shadow">Email address</label>
-            <label for="email_address"></label>
+            <label for="email_address" class="text-dark white-shadow">Email address</label>
             <input type="email" class="form-control" id="email_address" name="email_address"
                    aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-small text-faint">

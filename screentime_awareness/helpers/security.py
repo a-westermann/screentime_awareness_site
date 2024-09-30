@@ -25,7 +25,8 @@ def check_registered(email_address: str) -> bool:
     results = dbc.select(sql)
     return len(results) > 0
 
-def get_user(email_or_username: str, entered_pw: str) -> User or None:
+def get_user(email_or_username: str, entered_pw: str,
+             ignore_pw: bool) -> User or None:
     try:
         dbc = DBC()
         sql = f"select * from users where email = '{email_or_username}' LIMIT 1;"
@@ -36,7 +37,7 @@ def get_user(email_or_username: str, entered_pw: str) -> User or None:
             if len(results) == 0:
                 return None
 
-        if not validate_pw(results[0]['hashed_password'], entered_pw):
+        if not ignore_pw and not validate_pw(results[0]['hashed_password'], entered_pw):
             return None
         return User(email_or_username, results[0]['user_name'])
     except:
@@ -50,3 +51,9 @@ def validate_pw(hashed_pw: str, entered_pw: str) -> bool:
     #  to the end of the password (same as when encrytping)
     entered_pw = (entered_pw + get_secret()).encode()
     return bcrypt.checkpw(entered_pw, hashed_pw.encode())
+
+
+def bad_creds_chars(cred_str: str) -> bool:
+    bad_chars = ['~', ' ', '!', '%', '^', '&', '(', ')', '-', '{', '}',
+                 '\'', '.', '\\', '~']
+    return len([c for c in cred_str if c in bad_chars]) > 0

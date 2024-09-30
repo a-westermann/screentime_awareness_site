@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from screentime_awareness.helpers import security, db
+from screentime_awareness.helpers import security, db, member_communication
 from django.shortcuts import redirect
 from screentime_awareness.models import User
 import json
@@ -68,12 +68,10 @@ def register_user(request):
         username = request.POST.get('username', None)
         pw = request.POST.get('pw', None)
         confirm_pw = request.POST.get('confirm_pw', None)
-        bad_chars = ['~', ' ', '!', '%', '^', '&', '(', ')', '-', '{', '}',
-                     '\'', '.', '\\', '~']
         # validate email and password. If invalid, reload register.html
         if not email or not username or not pw or pw != confirm_pw:
             return redirect('register', invalid_creds=True)
-        elif len([c for c in username if c in bad_chars]) > 0:
+        elif security.bad_creds_chars(username + pw):
             return redirect('register', bad_chars=True)
         # if valid, update the db and direct them to home
         else:
@@ -88,6 +86,25 @@ def register_user(request):
 def account(request):
     return render(request, 'screentime_awareness/account.html')
 
+def forgot_pw(request, not_found=False, sent_recovery=False):
+    context = {
+        'not_found': not_found,
+        'sent_recovery': sent_recovery
+    }
+    return render(request, 'screentime_awareness/forgot_password.html', context=context)
+
+def forgot_pw_submit(request):
+    if request.POST:
+        email_user = request.POST.get('email_username', None)
+        if not email_user:
+            return redirect('forgot_pw', not_found=True)
+        user = security.get_user(email_user, '', ignore_pw=True)
+        if not user:
+            return redirect('forgot_pw', not_found=True)
+        member_communication.email_pw_recovery(user.email)
+        return redirect('forgot_pw', sent_recovery=True)
+
+
 def activities(request):
     # Should I make a new DBC instance every time I need one? Or use a singleton paradigm?
     # What would a singleton do for multiple users being logged in at once?
@@ -95,8 +112,8 @@ def activities(request):
     printables = dbc.select("select * from activities where activity_type = 'printable'")
     ideas = dbc.select("select * from activities where activity_type = 'idea'")
     context = {
-        'printables' : printables,
-        'ideas' : ideas,
+        'printables': printables,
+        'ideas': ideas,
     }
     return render(request, 'screentime_awareness/activities.html', context=context)
 
