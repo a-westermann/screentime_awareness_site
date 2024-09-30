@@ -144,8 +144,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DEFAULT_FROM_EMAIL = 'support@gobeyondthescreen.org'   # 'a.westermann.19@gmail.com'
-SERVER_EMAIL = 'support@gobeyondthescreen.org'  # 'a.westermann.19@gmail.com'
+DEFAULT_FROM_EMAIL = 'a.westermann.19@gmail.com'  # 'support@gobeyondthescreen.org'
+SERVER_EMAIL = 'a.westermann.19@gmail.com'  # 'support@gobeyondthescreen.org'
 # below might not be needed
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
