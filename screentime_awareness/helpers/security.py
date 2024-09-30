@@ -26,7 +26,7 @@ def check_registered(email_address: str) -> bool:
     return len(results) > 0
 
 def get_user(email_or_username: str, entered_pw: str,
-             ignore_pw: bool) -> User or None:
+             ignore_pw: bool = False) -> User or None:
     try:
         dbc = DBC()
         sql = f"select * from users where email = '{email_or_username}' LIMIT 1;"

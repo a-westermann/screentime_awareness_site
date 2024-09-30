@@ -4,12 +4,12 @@ from screentime_awareness.helpers import security, db, member_communication
 from django.shortcuts import redirect
 from screentime_awareness.models import User
 import json
+import sys
 
 
 def index(request, invalid_login=False, logout=False):
     context = {}
-    server = request.META.get('wsgi.file_wrapper', None)
-    if server is not None and server.__module__ == 'django.core.servers.basehttp':
+    if 'runserver' in sys.argv:
         context['dev'] = True
     if logout and request.session and 'user' in request.session:
         print('logging out')
@@ -30,6 +30,8 @@ def home(request):
         return redirect('index')
     username = json.loads(request.session['user'])['username']
     context = {'username': username}
+    if 'runserver' in sys.argv:
+        context['dev'] = True
     return render(request, 'screentime_awareness/home.html', context=context)
 
 def log_in_user(request):
