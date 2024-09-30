@@ -101,6 +101,7 @@ def forgot_pw_submit(request):
         user = security.get_user(email_user, '', ignore_pw=True)
         if not user:
             return redirect('forgot_pw', not_found=True)
+        print(f'sending password recovery email to {user.email}')
         member_communication.email_pw_recovery(user.email)
         return redirect('forgot_pw', sent_recovery=True)
 
