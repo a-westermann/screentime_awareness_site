@@ -15,7 +15,7 @@ def email_pw_recovery(email_address: str):
     em = EmailMessage(subject='Go Beyond the Screen Password Recovery',
         body='We received a request to reset your password for '
                 'gobeyondthescreen.org.'
-                '\nPlease follow this link to reset your password:'
+                '\n\n<b>Please follow this link to reset your password:</b>'
                 '\nhttps://gobeyondthescreen.org/reset_password=XLKjsijknmcJLKXoi20982klclSLKj'
                 '\n\nIf you did not make this request, you can safely ignore this '
                 'email.',
