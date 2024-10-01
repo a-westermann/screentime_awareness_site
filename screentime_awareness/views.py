@@ -11,6 +11,7 @@ def index(request, invalid_login=False, logout=False):
     context = {}
     if 'runserver' in sys.argv:
         context['dev'] = True
+        member_communication.email_pw_recovery('a.westermann.19@gmail.com')
     if logout and request.session and 'user' in request.session:
         print('logging out')
         request.session['user'] = None
