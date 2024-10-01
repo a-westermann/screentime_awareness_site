@@ -172,7 +172,7 @@ header {
 
 @media (min-width: 768px) {
     .container-small {
-        width: 100px;
+        width: 300px;
     }
     .container-large {
         width: 970px;
@@ -180,7 +180,7 @@ header {
 }
 @media (min-width: 992px) {
     .container-small {
-        width: 250px;
+        width: 400px;
     }
     .container-large {
         width: 1170px;
@@ -188,7 +188,7 @@ header {
 }
 @media (min-width: 1200px) {
     .container-small {
-        width: 350px;
+        width: 500px;
     }
     .container-large {
         width: 1500px;

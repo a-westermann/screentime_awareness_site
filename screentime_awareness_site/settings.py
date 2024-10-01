@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
+import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -148,7 +149,8 @@ DEFAULT_FROM_EMAIL = 'a.westermann.19@gmail.com'  # 'support@gobeyondthescreen.o
 SERVER_EMAIL = 'a.westermann.19@gmail.com'  # 'support@gobeyondthescreen.org'
 # below might not be needed
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'a.westermann.19@gmail.com'
-EMAIL_HOST_PASSWORD = open('email_pw').read().strip() if os.path.isfile('email_pw') else ''
+with json.loads(open('email_pw').read()) as file:
+    EMAIL_HOST = file['email_host']
+    EMAIL_PORT = file['port']
+    EMAIL_HOST_USER = file['email_host_user']
+    EMAIL_HOST_PASSWORD = file['email_host_password']
