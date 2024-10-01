@@ -145,12 +145,12 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DEFAULT_FROM_EMAIL = 'a.westermann.19@gmail.com'  # 'support@gobeyondthescreen.org'
-SERVER_EMAIL = 'a.westermann.19@gmail.com'  # 'support@gobeyondthescreen.org'
-# below might not be needed
+DEFAULT_FROM_EMAIL = 'support@gobeyondthescreen.org'
+SERVER_EMAIL = 'support@gobeyondthescreen.org'
 EMAIL_USE_TLS = True
 file = json.loads(open('email_pw').read())
 EMAIL_HOST = file['email_host']
 EMAIL_PORT = file['port']
 EMAIL_HOST_USER = file['email_host_user']
 EMAIL_HOST_PASSWORD = file['email_host_password']
+

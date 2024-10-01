@@ -19,6 +19,5 @@ def email_pw_recovery(email_address: str):
                 '\nhttps://gobeyondthescreen.org/reset_password=XLKjsijknmcJLKXoi20982klclSLKj'
                 '\n\nIf you did not make this request, you can safely ignore this '
                 'email.',
-        from_email='support@gobeyondthescreen.com',
         to=[email_address])
-    em.send()
+    print(f'email send count: {em.send()}')
