@@ -20,6 +20,7 @@ urlpatterns = [
     path('forgot_pw_submit', views.forgot_pw_submit, name='forgot_pw_submit'),
     # regex path to accept any uid. Note that you do not put 'uid=<uid_regex>', you
     #  only name the regex group according to the view parameter
+    # NOTE THE PARAMS HAVE TO BE IN ORDER HERE!
     re_path(r'reset_pw/(?P<uid>.*?)/?$', views.reset_pw, name='reset_pw'),
     re_path(r'reset_pw/(?P<reset_complete>.*?)/?$', views.reset_pw, name='reset_pw'),
     path('reset_pw/reset_complete=<reset_complete>/', views.reset_pw, name='reset_pw'),
