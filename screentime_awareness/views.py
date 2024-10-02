@@ -107,8 +107,25 @@ def forgot_pw_submit(request):
         member_communication.email_pw_recovery(user.email)
         return redirect('forgot_pw', sent_recovery=True)
 
-def reset_pw(request, uid: str):
-    return render(request, 'screentime_awareness/reset_pw.html')
+def reset_pw(request, uid: str, reset_complete: bool = False):
+    context = {
+        'reset_success': {reset_complete}
+    }
+    if not reset_complete:
+        # check if there is a password reset record for the entered uid
+        email = security.reset_pw(uid)
+        if email:
+            context['valid_link'] = True
+            request.session['reset_pw_found_email'] = email
+    else:
+        # update the user's password after checking validity
+        pw = request.POST.get('pw', None)
+        confirm_pw = request.POST.get('confirm_pw', None)
+        if not pw or pw != confirm_pw or security.bad_creds_chars(pw):
+            context['invalid_pw'] = True
+        else:
+            security.update_pw(request.POST.get('pw'), request.session['reset_pw_found_email'])
+    return render(request, 'screentime_awareness/reset_pw.html', context=context)
 
 #</editor-fold>
 

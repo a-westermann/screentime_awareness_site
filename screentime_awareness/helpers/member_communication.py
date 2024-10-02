@@ -13,12 +13,12 @@ def email_pw_recovery(email_address: str):
 
     # insert into db a random link associated with the user's email
     dbc = db.DBC()
-    results = dbc.select(f"select * from forgot_pw where email_address = '{email_address}'")
+    results = dbc.select(f"select * from forgot_pw where email_address = '{email_address}';")
     link_uid = security.generate_random_str(30)
     if len(results) > 0:  # if there is already one, overwrite it
-        dbc.write(f"update forgot_pw set link_uid = '{link_uid}' where email_address = '{email_address}'")
+        dbc.write(f"update forgot_pw set link_uid = '{link_uid}' where email_address = '{email_address}';")
     else:
-        dbc.write(f"insert into forgot_pw values('{email_address}', '{link_uid}')")
+        dbc.write(f"insert into forgot_pw values('{email_address}', '{link_uid}');")
 
     print(f'sending password recovery email to {email_address}')
     em = EmailMessage(subject='Go Beyond the Screen Password Recovery',

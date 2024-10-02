@@ -1,5 +1,43 @@
 {% extends 'base.html' %}
 {% block title %}Register{% endblock %}
 {% block content %}
-
+    {% if reset_complete %}
+        <div class="container text-warning text-large text-center text-dark white-shadow">
+            <p>Your password has been changed.
+                <br>
+                <a href="/">Return home to log in.</a>
+            </p>
+        </div>
+    {% elif not valid_link %}
+        <div class="container text-warning text-large text-center text-dark white-shadow">
+            <p>The password reset link you followed has either expired or is invalid.
+                <br>Please confirm the link or revisit
+                <a href="/forgot_password">the forgot password page </a>
+                and try again.
+            </p>
+        </div>
+    {% else %}
+        {% if invalid_pw %}
+            <div class="container text-warning text-large text-center text-dark white-shadow">
+            <p>Please try again and ensure the passwords match and are valid and do not contain backslashes or tick marks.</p>
+        {% endif %}
+        <div class="container text-warning text-large text-center text-dark white-shadow">
+            <p>Please enter a new password.</p>
+            <div class="parent container d-flex justify-content-center align-items-center">
+                <form id='reset pw form' method="post" action="{% url 'reset_pw/reset_complete=True' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="pw" typeof="string" class="text-dark white-shadow">New Password</label>
+                        <input type="password" class="form-control" id="pw" name="pw" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm_pw" typeof="string" class="text-dark white-shadow">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirm_pw" name="confirm_pw"
+                               placeholder="Confirm Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Submit</button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

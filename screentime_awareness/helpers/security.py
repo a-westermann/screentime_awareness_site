@@ -57,11 +57,29 @@ def validate_pw(hashed_pw: str, entered_pw: str) -> bool:
     return bcrypt.checkpw(entered_pw, hashed_pw.encode())
 
 def bad_creds_chars(cred_str: str) -> bool:
-    bad_chars = ['~', ' ', '!', '%', '^', '&', '(', ')', '-', '{', '}',
-                 '\'', '.', '\\', '~']
+    bad_chars = ['{', '}', '\'', '\\']
     return len([c for c in cred_str if c in bad_chars]) > 0
 
 
 def generate_random_str(length: int) -> str:
     return ''.join(random.SystemRandom().choice(string.ascii_uppercase
                     + string.ascii_lowercase + string.digits) for _ in range(length))
+
+def reset_pw(link_uid: str):
+    # This method is called when a user follows the emailed reset
+    # The link must be followed within 30 minutes or it will expire, and the record
+    #  is deleted from the table
+    dbc = DBC()
+    results = dbc.select(f"select email_address from forgot_pw where link_uid = '{link_uid}';")
+    if (len(results)) > 0:
+        # valid reset link. Delete the link NOW and store the email in a session variable in order
+        #  to prevent a situation where the auto-expiration process removes it between now and
+        #  when they choose a new password
+        dbc.write(f"delete from forgot_pw where link_uid = '{link_uid}';")
+        return results[0]['email_address']
+
+def update_pw(pw: str, email: str):
+    dbc = DBC()
+    salt = bcrypt.gensalt()
+    hashed_pw = bcrypt.hashpw((pw + get_secret()).encode(), salt).decode()
+    dbc.write(f"update users set set hashed_password = '{hashed_pw}' where email = '{email}';")
