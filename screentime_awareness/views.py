@@ -107,13 +107,13 @@ def forgot_pw_submit(request):
         member_communication.email_pw_recovery(user.email)
         return redirect('forgot_pw', sent_recovery=True)
 
-def reset_pw(request, uid: str, reset_complete=False):
+def reset_pw(request, uid: str = '', reset_complete=False):
     context = {
         'reset_success': {reset_complete}
     }
-    print(f'reset uid = {uid}')
     if not reset_complete:
         # check if there is a password reset record for the entered uid
+        print(f'reset uid = {uid}')
         email = security.reset_pw(uid)
         if email:
             request.session['reset_pw_found_email'] = email
