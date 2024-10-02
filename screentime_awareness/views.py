@@ -116,8 +116,9 @@ def reset_pw(request, uid: str, reset_complete: bool = False):
         # check if there is a password reset record for the entered uid
         email = security.reset_pw(uid)
         if email:
-            context['valid_link'] = True
             request.session['reset_pw_found_email'] = email
+        else:
+            context['invalid_link'] = True
     else:
         # update the user's password after checking validity
         pw = request.POST.get('pw', None)
