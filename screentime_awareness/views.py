@@ -107,7 +107,7 @@ def forgot_pw_submit(request):
         member_communication.email_pw_recovery(user.email)
         return redirect('forgot_pw', sent_recovery=True)
 
-def reset_pw(request, uid: str, reset_complete: bool = False):
+def reset_pw(request, uid: str, reset_complete=False):
     context = {
         'reset_success': {reset_complete}
     }
