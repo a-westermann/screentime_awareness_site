@@ -1,3 +1,7 @@
+import random
+import string
+import sys
+
 import bcrypt
 from screentime_awareness.helpers.db import DBC
 from screentime_awareness.models import User
@@ -41,9 +45,9 @@ def get_user(email_or_username: str, entered_pw: str,
             return None
         return User(email_or_username, results[0]['user_name'])
     except:
-        # if DEBUG  how to?
-        # debug machine. allow log in
-        return User('adw8122@gmail.com', 'debug')
+        if 'runserver' in sys.argv:
+            # debug machine. allow log in
+            return User('adw8122@gmail.com', 'debug')
 
 def validate_pw(hashed_pw: str, entered_pw: str) -> bool:
     # combine the local secret to the prompted pw and encode to bytes
@@ -52,8 +56,12 @@ def validate_pw(hashed_pw: str, entered_pw: str) -> bool:
     entered_pw = (entered_pw + get_secret()).encode()
     return bcrypt.checkpw(entered_pw, hashed_pw.encode())
 
-
 def bad_creds_chars(cred_str: str) -> bool:
     bad_chars = ['~', ' ', '!', '%', '^', '&', '(', ')', '-', '{', '}',
                  '\'', '.', '\\', '~']
     return len([c for c in cred_str if c in bad_chars]) > 0
+
+
+def generate_random_str(length: int) -> str:
+    return ''.join(random.SystemRandom().choice(string.ascii_uppercase
+                    + string.ascii_lowercase + string.digits) for _ in range(length))

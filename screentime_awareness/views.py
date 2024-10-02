@@ -11,7 +11,6 @@ def index(request, invalid_login=False, logout=False):
     context = {}
     if 'runserver' in sys.argv:
         context['dev'] = True
-        member_communication.email_pw_recovery('a.westermann.19@gmail.com')
     if logout and request.session and 'user' in request.session:
         print('logging out')
         request.session['user'] = None
@@ -21,7 +20,6 @@ def index(request, invalid_login=False, logout=False):
     else:
         context['logged_out'] = True
     if invalid_login:
-        # TODO: Forgot password added
         context['invalid_login'] = True
     return render(request, 'screentime_awareness/index.html', context=context)
 
@@ -35,6 +33,8 @@ def home(request):
         context['dev'] = True
     return render(request, 'screentime_awareness/home.html', context=context)
 
+
+#<editor-fold desc="Registration and Login">
 def log_in_user(request):
     # This method is called to try to log in a user when they submit their credentials
     # Upon success, it redirects them to the home page
@@ -89,9 +89,6 @@ def register_user(request):
     else:
         print('error')
 
-def account(request):
-    return render(request, 'screentime_awareness/account.html')
-
 def forgot_pw(request, not_found=False, sent_recovery=False):
     context = {
         'not_found': not_found,
@@ -109,6 +106,14 @@ def forgot_pw_submit(request):
             return redirect('forgot_pw', not_found=True)
         member_communication.email_pw_recovery(user.email)
         return redirect('forgot_pw', sent_recovery=True)
+
+def reset_pw(request, uid: str):
+    return render(request, 'screentime_awareness/reset_pw.html')
+
+#</editor-fold>
+
+def account(request):
+    return render(request, 'screentime_awareness/account.html')
 
 
 def activities(request):
