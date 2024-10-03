@@ -5,8 +5,10 @@
 #  Quiz
 #  Link two user accounts (or more?) for parents to talk. What if one doesn't respond? Reassign?
 
->Logging in /register
->>If Log in does not work, redirect users to a page dedicated to log in and register
+
+System todos:
+    - scheduled process to expire pw recovery links
+    - log out a summary of visits and send to my email. Include a count from people other than ourselves
 
 
 To modernize your website, here are a few design tips:
