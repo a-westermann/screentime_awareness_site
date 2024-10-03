@@ -115,6 +115,7 @@ def reset_pw(request, uid: str = '', reset_complete=False):
         # check if there is a password reset record for the entered uid
         print(f'reset uid = {uid}')
         email = security.reset_pw(uid)
+        print(f'reset emaiL:  {email}')
         if email:
             request.session['reset_pw_found_email'] = email
         else:
