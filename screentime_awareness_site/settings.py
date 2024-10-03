@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['18.222.1.149',  # gobeyondthescreen.org aws ec2 instance publi
                  'gobeyondthescreen.org',
                  'www.gobeyondthescreen.org',
                  '172.31.7.125',  # private ip, prob not needed
-                 '192.168.1.31',
+                 '192.168.1.29',
                  '192.168.1.229',
                  '192.168.1.87',
                  '127.0.0.1']
