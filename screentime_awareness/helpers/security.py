@@ -82,4 +82,4 @@ def update_pw(pw: str, email: str):
     dbc = DBC()
     salt = bcrypt.gensalt()
     hashed_pw = bcrypt.hashpw((pw + get_secret()).encode(), salt).decode()
-    dbc.write(f"update users set set hashed_password = '{hashed_pw}' where email = '{email}';")
+    dbc.write(f"update users set hashed_password = '{hashed_pw}' where email = '{email}';")
