@@ -13,7 +13,7 @@ def index(request, invalid_login=False, logout=False):
         context['dev'] = True
     if logout and request.session and 'user' in request.session:
         print('logging out')
-        request.session['user'] = None
+        request.session.clear()
     if request.session and 'user' in request.session and request.session['user']\
             and json.loads(request.session['user']):
         return redirect('home')
