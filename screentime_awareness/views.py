@@ -108,9 +108,7 @@ def forgot_pw_submit(request):
         return redirect('forgot_pw', sent_recovery=True)
 
 def reset_pw(request, uid='', reset_complete=False):
-    context = {
-        'reset_success': {reset_complete}
-    }
+    context = {}
     print(f"reset complete = {reset_complete}   {context['reset_success']}")
     if not reset_complete:
         # check if there is a password reset record for the entered uid
@@ -123,6 +121,7 @@ def reset_pw(request, uid='', reset_complete=False):
             context['invalid_link'] = True
             print('invalid reset link')
     else:
+        context['reset_success'] = reset_complete
         # update the user's password after checking validity
         pw = request.POST.get('pw', None)
         confirm_pw = request.POST.get('confirm_pw', None)
