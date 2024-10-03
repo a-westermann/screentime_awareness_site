@@ -20,7 +20,7 @@ urlpatterns = [
     path('forgot_pw_submit', views.forgot_pw_submit, name='forgot_pw_submit'),
     # re_path(r'^(reset_pw/(?:(P<uid>[.*]))?(?:(P<reset_complete>(True|False))?))/$', views.reset_pw, name='reset_pw'),
     # re_path(r'^reset_pw/((?P<uid>.*)/)?(?P<reset_complete>(True|False))$', views.reset_pw, name='reset_pw'),
-    re_path(r'reset_pw/(?P<uid>.*?)/?$', views.reset_pw, name='reset_pw'),
+    re_path(r'reset_pw/uid=(?P<uid>.*?)/?$', views.reset_pw, name='reset_pw'),
     # re_path(r'reset_pw/(?P<reset_complete>.*?)/?$', views.reset_pw, name='reset_pw'),
     path('reset_pw/reset_complete=<reset_complete>/', views.reset_pw, name='reset_pw'),
     path('activities/', views.activities, name='activities'),
