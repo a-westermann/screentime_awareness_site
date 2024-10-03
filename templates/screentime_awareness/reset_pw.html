@@ -20,11 +20,12 @@
         {% if invalid_pw %}
             <div class="container text-warning text-large text-center text-dark white-shadow">
             <p>Please try again and ensure the passwords match and are valid and do not contain backslashes or tick marks.</p>
+            </div>
         {% endif %}
         <div class="container text-warning text-large text-center text-dark white-shadow">
             <p>Please enter a new password.</p>
             <div class="parent container d-flex justify-content-center align-items-center">
-               <form id='reset pw form' method="post" action="{% url 'reset_pw' reset_complete='True' %}">
+               <form id='reset pw form' method="post" action="{% url 'reset_pw' reset_complete=True %}">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="pw" typeof="string" class="text-dark white-shadow">New Password</label>
