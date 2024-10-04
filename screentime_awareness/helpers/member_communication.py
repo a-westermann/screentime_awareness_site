@@ -16,7 +16,8 @@ def email_pw_recovery(email_address: str):
     results = dbc.select(f"select * from forgot_pw where email_address = '{email_address}';")
     link_uid = security.generate_random_str(50)
     if len(results) > 0:  # if there is already one, overwrite it
-        dbc.write(f"update forgot_pw set link_uid = '{link_uid}' where email_address = '{email_address}';")
+        dbc.write(f"update forgot_pw set link_uid = '{link_uid}' where email_address = '{email_address}', "
+                  f"now();")
     else:
         dbc.write(f"insert into forgot_pw values('{email_address}', '{link_uid}', now());")
 
