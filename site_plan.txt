@@ -10,6 +10,7 @@ Google analytics: https://analytics.google.com/analytics/web/?utm_source=marketi
     stream ID: 9774796391
 
 System todos:
+    - Api access to grab something?
     - log out a summary of visits and send to my email. Include a count from people other than ourselves
             (Actually just use Google Analytics... see above)
     - Search bar. Search for activities like 'coloring book', or articles about topics
