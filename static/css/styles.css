@@ -93,7 +93,7 @@ header {
     background-image:url(/static/girl_phone_ultrawide.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: initial;
+    background-attachment: fixed;
     min-height: 850px;
     /*min-height: 100%;*/
     /*width: auto;*/
