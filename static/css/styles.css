@@ -1,6 +1,7 @@
 .girl-phone-image {
     background: url('/static/girl_phone_background.png');
     background-size: cover; /* will stretch the image to your div size while maintaining aspect ratio */
+
 }
 .mother-girl-book{
     background: url('/static/mother_kid_book_narrow.png');
@@ -97,7 +98,6 @@ header {
     /*min-height: 100%;*/
     /*width: auto;*/
     /*min-width: 800px;*/
-    background-position: bottom, left;
 }
 
 .jumbotron-main{
