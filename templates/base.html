@@ -69,33 +69,38 @@
                     </div>
                 </li>
             </ul>
-            {#            <form class="form-inline my-2 my-lg-0 ">#}
-            {#                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">#}
-            {#            </form>#}
         </div>
     </nav>
 
 </header>
-{% if dev %}
-    <div class="container-fluid dev-banner text-white text-center text-larger fw-bold">
-        &nbsp<br>DEV MODE<br>&nbsp</div>
-{% endif %}
+{#{% if dev %}#}
+{#    <div class="container-fluid dev-banner text-white text-center text-larger fw-bold">#}
+{#        &nbsp<br>DEV MODE<br>&nbsp</div>#}
+{#{% endif %}#}
 <div class="hero">
     {% block content %}
     {% endblock %}
+<br><br><br>
 </div>
-<br><br>
-<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-    <footer class="masthead mb-auto">
-        <div class="inner">
-            <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="/">Home</a>
-                <a class="nav-link" href="/donate/">Donate</a>
-                <a class="nav-link" href="#">Contact</a>
-            </nav>
-        </div>
-    </footer>
-</div>
+
+{#<div class="flex-container" style="padding-top: 50px; padding-bottom: 50px;">#}
+{#    <div class="row">#}
+{#    <footer class="masthead mb-auto">#}
+{#        <div class="inner">#}
+{#            <div class="row">#}
+{#            <nav class="nav nav-masthead justify-content-center">#}
+{#                <div class="col-xxl-4 nav-link active text-large" style="padding-left: 100px; padding-right: 100px;">#}
+{#                    <a class="text-decoration-none" href="/">Home</a></div>#}
+{#                <div class="col-xxl-4 nav-link text-large" style="padding-left: 100px; padding-right: 100px;">#}
+{#                    <a class="text-decoration-none" href="/donate/">Donate</a></div>#}
+{#                <div class="col-xxl-4nav-link text-large" style="padding-left: 100px; padding-right: 100px;">#}
+{#                    <a class="text-decoration-none" href="#">Contact</a></div>#}
+{#            </nav>#}
+{#                </div>#}
+{#        </div>#}
+{#    </footer>#}
+{#        </div>#}
+{#</div>#}
 
 <!-- JavaScript loads -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
