@@ -78,6 +78,7 @@ header {
 }
 .scale-up {
     scale: 2;
+    position: static;
 }
 .line-height-short{
     line-height: 0.6;
