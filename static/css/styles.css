@@ -11,9 +11,6 @@
     /*width: auto;*/
     /*min-width: 800px;*/
     background-position: bottom, right;
-    display: block;
-    max-width: 100%;
-    height: auto;
 }
 .girl-phone-image {
     background: url('/static/girl_phone_background.png');
@@ -27,6 +24,9 @@
     /*background-repeat: no-repeat;*/
     background-attachment: fixed;
     /*overflow: scroll;*/
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 .origami{
     background-image: url('/static/origami.png' );
