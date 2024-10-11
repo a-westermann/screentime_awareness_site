@@ -269,7 +269,7 @@ header {
 }
 @media (min-width: 992px) {
     .index-image_adjustments{
-        background-position-x: center;
+        background-position: 50% 75%;
         background-size: cover;
     }
     .index-text{
@@ -284,7 +284,7 @@ header {
 }
 @media (min-width: 1200px) {
     .index-image_adjustments{
-        background-position-x: center;
+        background-position: 50% 75%;
         background-size: cover;
     }
         .index-text{
