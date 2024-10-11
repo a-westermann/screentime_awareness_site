@@ -177,7 +177,7 @@ header {
     text-justify: inter-word;  /*doesn't work*/
 }
 .text-xxl{
-    font-size: 450%;
+    font-size: 600%;
 }
 .text-small{
     font-size: 80%;
@@ -200,6 +200,10 @@ header {
 .chocolate{
     color: chocolate;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+.text-ultra-warning{
+    color: yellow;
+    text-shadow: -2px 0 chocolate, 0 2px chocolate, 2px 0 chocolate, 0 -2px chocolate;
 }
 .white-shadow{
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
