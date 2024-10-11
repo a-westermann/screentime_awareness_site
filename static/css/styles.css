@@ -1,3 +1,17 @@
+.scrolling_image_index {
+    background-color: #eee;
+    font-family: "Calibri", sans-serif;
+    font-weight: 300;
+    background-image:url(/static/girl_phone_ultrawide.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 850px;
+    /*min-height: 100%;*/
+    /*width: auto;*/
+    /*min-width: 800px;*/
+    background-position: bottom, right;
+}
 .girl-phone-image {
     background: url('/static/girl_phone_background.png');
     background-size: cover; /* will stretch the image to your div size while maintaining aspect ratio */
@@ -12,7 +26,7 @@
     /*overflow: scroll;*/
 }
 .origami{
-    background-image: url( '/static/origami.png' );
+    background-image: url('/static/origami.png' );
     /*link: url('/activities/');*/
     background-size: cover;
     background-position: center;
@@ -86,20 +100,6 @@ header {
     line-height: 0.85;
 }
 
-.scrolling_image_index {
-    background-color: #eee;
-    font-family: "Calibri", sans-serif;
-    font-weight: 300;
-    background-image:url(/static/girl_phone_ultrawide.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 850px;
-    /*min-height: 100%;*/
-    /*width: auto;*/
-    /*min-width: 800px;*/
-    background-position: bottom, right;
-}
 
 .jumbotron-main{
     background-image: url( '/static/origami.png' );

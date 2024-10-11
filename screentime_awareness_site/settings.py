@@ -21,17 +21,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-config = open('config.json').read()
-if config:
+config = None
+if os.path.isfile('config.json'):
+    config = open('config.json').read()
     SECRET_KEY = json.loads(config)['DJANGO_SECRET_KEY']
+else:
+    SECRET_KEY = ['django-secret-key-klasdjflkxicjoliweujlki2j3lkjs']
 DEBUG = config is None
 print(f'DEBUG MODE = {DEBUG}')
 SECURE_SSL_REDIRECT = not DEBUG
 SESSION_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_SECURE = not DEBUG
 SECURE_HSTS_SECONDS = 15
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = not DEBUG
+SECURE_HSTS_INCLUDE_SUBDOMAINS = not DEBUG
 
 ALLOWED_HOSTS = ['18.222.1.149',  # gobeyondthescreen.org aws ec2 instance public
                  'gobeyondthescreen.org',
