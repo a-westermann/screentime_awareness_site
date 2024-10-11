@@ -265,10 +265,13 @@ header {
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
     .index-hero-text{
-        font-size: 340%;
+        font-size: 350%;
     }
     .index-stats-text{
         font-size: 200%;
+    }
+                    .index-stats-text-num{
+        font-size: 400%;
     }
     .container-small {
         width: 300px;
@@ -277,7 +280,7 @@ header {
         width: 970px;
     }
 }
-@media (min-width: 992px) {
+@media (min-width: 600px) {
     .index-image_adjustments{
         background-position: 50% 75%;
         background-size: cover;
@@ -289,7 +292,10 @@ header {
         font-size: 450%;
     }
     .index-stats-text{
-        font-size: 350%;
+        font-size: 200%;
+    }
+        .index-stats-text-num{
+        font-size: 400%;
     }
     .container-small {
         width: 400px;
@@ -310,7 +316,34 @@ header {
         font-size: 550%;
     }
         .index-stats-text{
+        font-size: 250%;
+    }
+                .index-stats-text-num{
+        font-size: 500%;
+    }
+    .container-small {
+        width: 500px;
+    }
+    .container-large {
+        width: 1500px;
+    }
+}
+@media (min-width: 1680px) {
+    .index-image_adjustments{
+        background-position: 50% 75%;
+        background-size: cover;
+    }
+        .index-text-shadow{
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    }
+        .index-hero-text{
+        font-size: 550%;
+    }
+        .index-stats-text{
         font-size: 350%;
+    }
+                .index-stats-text-num{
+        font-size: 500%;
     }
     .container-small {
         width: 500px;
