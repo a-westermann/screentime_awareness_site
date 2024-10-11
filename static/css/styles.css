@@ -261,8 +261,11 @@ header {
         background-position: calc(50% - 150px) 0;
         background-size: 380%;
     }
-    .index-text{
+    .index-text-shadow{
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+    .index-hero-text{
+        font-size: 340%;
     }
     .container-small {
         width: 300px;
@@ -276,8 +279,11 @@ header {
         background-position: 50% 75%;
         background-size: cover;
     }
-    .index-text{
+    .index-text-shadow{
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    }
+    .index-hero-text{
+        font-size: 450%;
     }
     .container-small {
         width: 400px;
@@ -291,8 +297,11 @@ header {
         background-position: 50% 75%;
         background-size: cover;
     }
-        .index-text{
+        .index-text-shadow{
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    }
+        .index-hero-text{
+        font-size: 550%;
     }
     .container-small {
         width: 500px;
