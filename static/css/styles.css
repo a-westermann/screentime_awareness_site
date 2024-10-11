@@ -249,7 +249,8 @@ header {
 
 @media (min-width: 0px) {
     .sized-img-position{
-        background-position: calc(50% - 260px) 50%;
+        background-position: calc(50% - 60px) 50%;
+        background-size: 300%;
     }
     .container-small {
         width: 300px;
@@ -261,6 +262,7 @@ header {
 @media (min-width: 992px) {
     .sized-img-position{
         background-position-x: center;
+        background-size: cover;
     }
     .container-small {
         width: 400px;
@@ -272,6 +274,7 @@ header {
 @media (min-width: 1200px) {
     .sized-img-position{
         background-position-x: center;
+        background-size: cover;
     }
     .container-small {
         width: 500px;
