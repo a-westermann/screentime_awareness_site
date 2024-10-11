@@ -258,7 +258,7 @@ header {
 
 @media (min-width: 0px) {
     .index-image_adjustments{
-        background-position: calc(50% - 150px) 0;
+        background-position: calc(50% - 200px) 0;
         background-size: 380%;
     }
     .index-text-shadow{
@@ -266,6 +266,9 @@ header {
     }
     .index-hero-text{
         font-size: 340%;
+    }
+    .index-stats-text{
+        font-size: 200%;
     }
     .container-small {
         width: 300px;
@@ -285,6 +288,9 @@ header {
     .index-hero-text{
         font-size: 450%;
     }
+    .index-stats-text{
+        font-size: 350%;
+    }
     .container-small {
         width: 400px;
     }
@@ -302,6 +308,9 @@ header {
     }
         .index-hero-text{
         font-size: 550%;
+    }
+        .index-stats-text{
+        font-size: 350%;
     }
     .container-small {
         width: 500px;
