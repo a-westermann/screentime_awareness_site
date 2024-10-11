@@ -84,6 +84,11 @@ header {
     color: white;
     font-weight: bold;
 }
+.btn-xl {
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-size: 40px;
+}
 /*hover color change*/
 .buttons:hover, .buttons:focus, .buttons:active, .buttons.active, .open>.dropdown-toggle.buttons {
     color: black;
