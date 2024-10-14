@@ -62,6 +62,7 @@ header {
     /*width: 120px;*/
     background-color: #000000;
 }
+
 .front{
     z-index: 1100;
 }
@@ -151,15 +152,17 @@ header {
     background-color: rgb(128, 128, 128);
 }
 .hero {
-    padding-bottom: 10%; /* = ( 600 / 1600 ) x 100 */
-    /*background-image: url( '/static/teal_gray_gradient.png' );*/
-    background-image: url('/static/reverse_gradient.png');
+    /*padding-bottom: 10%; !* = ( 600 / 1600 ) x 100 *!*/
+    /*background-image: url('/static/reverse_gradient.png');*/
     background-size: cover;
-    min-height: 850px;
-    /*width: 100%;*/
-    /*min-height:100%;*/
-    /*height: 100%;*/
-    height: auto;
+    min-height: 1200px;
+    height: fit-content;
+    background-repeat: repeat-x;
+}
+.join-block{
+    /*background-image: url('/static/reverse_gradient.png');*/
+    background-color: coral;
+    background-size: contain;
     background-repeat: repeat-x;
 }
 .dev-banner{
