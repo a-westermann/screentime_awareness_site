@@ -266,7 +266,12 @@ header {
     margin-top: 80px;
 }
 
+
+/* Media - sizing based on screen size */
 @media (min-width: 0px) {
+    header{
+        font-size: 3vw;
+    }
     .index-image_adjustments{
         background-position: calc(50% - 200px) 0;
         background-size: 380%;
@@ -280,7 +285,7 @@ header {
     .index-stats-text{
         font-size: 200%;
     }
-                    .index-stats-text-num{
+    .index-stats-text-num{
         font-size: 400%;
     }
     .container-small {
@@ -291,6 +296,10 @@ header {
     }
 }
 @media (min-width: 600px) {
+    header{
+        font-size: 2vw;
+    }
+
     .index-image_adjustments{
         background-position: 50% 75%;
         background-size: cover;
@@ -304,7 +313,7 @@ header {
     .index-stats-text{
         font-size: 200%;
     }
-        .index-stats-text-num{
+    .index-stats-text-num{
         font-size: 400%;
     }
     .container-small {
@@ -315,20 +324,23 @@ header {
     }
 }
 @media (min-width: 1200px) {
+        header{
+        font-size: 1.5vw;
+    }
     .index-image_adjustments{
         background-position: 50% 75%;
         background-size: cover;
     }
-        .index-text-shadow{
+    .index-text-shadow{
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
     }
-        .index-hero-text{
+    .index-hero-text{
         font-size: 550%;
     }
-        .index-stats-text{
+    .index-stats-text{
         font-size: 250%;
     }
-                .index-stats-text-num{
+    .index-stats-text-num{
         font-size: 500%;
     }
     .container-small {
@@ -339,20 +351,23 @@ header {
     }
 }
 @media (min-width: 1680px) {
+        header{
+        font-size: 0.85vw;
+    }
     .index-image_adjustments{
         background-position: 50% 75%;
         background-size: cover;
     }
-        .index-text-shadow{
+    .index-text-shadow{
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
     }
-        .index-hero-text{
+    .index-hero-text{
         font-size: 550%;
     }
-        .index-stats-text{
+    .index-stats-text{
         font-size: 350%;
     }
-                .index-stats-text-num{
+    .index-stats-text-num{
         font-size: 500%;
     }
     .container-small {
