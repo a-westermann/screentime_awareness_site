@@ -200,6 +200,10 @@ header {
     color: darkslategrey;
     font-family: Calibri,  sans-serif;
 }
+.text-gray{
+    color: dimgray;
+    font-family: Calibri, sans-serif;
+}
 .text-light{
     color: ghostwhite;
     font-family: Poppins, sans-serif;
@@ -286,19 +290,20 @@ header {
     overflow: hidden;
 }
 .enlarge-onhover img{
-    transition: all 0.8s ease-in-out;
+    transition: all 0.6s ease-in-out;
     object-fit: cover;
     width: auto;
     height: 100%;
 }
 .enlarge-onhover span{
-    transition: all 0.8s ease-in-out;
+    transition: all 0.6s ease-in-out;
     object-fit: cover;
     width: auto;
     height: 100%;
 }
 .enlarge-onhover:hover img{
-    transform: scale(1.2, 1.2);
+    /*transform: scale(1.2, 1.2);*/
+    transform: scale(30, 2);
 }
 .enlarge-onhover:hover span{
     transform: scale(1.2, 1.2);
