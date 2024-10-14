@@ -36,6 +36,8 @@
         </div>
     </div>
     <br><br><br><br>
+
+
     <div class="container-fluid text-center" style="padding-top: 50px">
         <div class="row">
             <div class="col-lg-3">
@@ -57,39 +59,41 @@
         </div>
     </div>
 
+
+
     <div class="container-fluid" style="padding-top: 250px;">
         <div class="row">
-            <div class="col-sm-6 background-dark text-white">
-                <div class="" style="margin: 150px 100px 250px;">
-                    <p class="text-largerer fw-bold">About Go Beyond the Screen</p>
-                    <p class="text-large">We're dedicated to empowering parents with the knowledge they need to stop
-                        the detrimental influence of screened devices on their children</p>
-                </div>
+            <div class="col-lg-6 flex-column d-flex background-dark text-white enlarge-onhover">
+                <span class="text-largerer fw-bold text-center" style="margin: 150px 80px 250px;">
+                    About Go Beyond the Screen<br>
+                    <span class="text-small fw-bold" >We're dedicated to empowering parents with the knowledge they need to stop
+                        the detrimental influence of screened devices on their children</span></span>
             </div>
-            <div class="col-sm-2 origami">
-
+            <div class="col-lg-2 enlarge-onhover image-center">
+                <img src="{{ STATIC_URL }}/static/origami.png" class="" alt="">
             </div>
-            <div class="col-sm-4 background-orange text-white">
-                <div class="" style="margin: 150px 100px 250px;">
-                    <p class="text-largerer fw-bold">How you can help</p>
-                    <p class="text-large fw-bold">Your child's social development starts with you.</p>
-                </div>
+            <div class="col-lg-4 flex-column d-flex background-orange text-white enlarge-onhover">
+                    <span class="text-largerer fw-bold text-center" style="margin: 150px 50px 250px;">How you can help<br>
+                    <span class="text-small fw-bold" >Your child's social
+                        development starts with you.</span></span>
             </div>
         </div>
-        <div class="row" style="height: 800px;">
-            <div class="col-lg-6 mother-girl-book flex">
+        <div class="row" style="margin-bottom: 50px">  <!--  style="height: 800px;" -->
+            <div class="col-lg-6 mother-girl-book flex mother-girl-book-size">
             </div>
-            <div class="col-sm-6">
-                <div class="row background-lightblue" style="height: 400px; padding: 100px">
+            <div class="col-lg-6  mother-girl-book flex mother-girl-book-size">
+                <div class="row" style="height: 400px; padding: 100px">
                     <p class="text-largerer text-white fw-bold"></p>
                 </div>
-                <div class="row" style="height: 400px;">
-                    <div class="flex-column d-flex col-md-6 background-dark justify-content-center" style="padding: 80px;">
-                        <span class="text-larger text-white fw-bold text-center">
+                <div class="row">  <!--style="height: 400px;" -->
+                    <div class="flex-column d-flex col-xl-6 background-dark justify-content-center enlarge-onhover"
+                         style="padding-top: 200px; padding-bottom: 200px;">
+                        <span class="text-larger text-white fw-bold text-center" style="padding-left: 20px; padding-right: 20px;">
                             Discover tons of free activities for you and your child.
                         </span>
                     </div>
-                    <div class="col-md-6 girl-happy">
+                    <div class="col-xl-6 enlarge-onhover" style="padding:0">
+                        <img src="{{ STATIC_URL }}/static/girl_happy.png" class="img-fluid" alt="">
                     </div>
 
                 </div>
@@ -105,8 +109,8 @@
         <div id="login_box" class="join-block" style="margin: 50px 0 10px;">
             <p class="text-white fw-bold text-xl text-center" style="margin: 10px 0 10px;">
                 <br>JOIN OTHER CARING PARENTS</p>
-                <p class="text-white fw-bold  text-larger text-center">
-                    Discover tons of free resources to help your child beat screen addiction<br><br><br></p>
+            <p class="text-white fw-bold  text-larger text-center">
+                Discover tons of free resources to help your child beat screen addiction<br><br><br></p>
         </div>
 
         <div class="parent container d-flex justify-content-center align-items-center">
@@ -136,6 +140,6 @@
                 <a class="link-primary text-small" href="/forgot_pw">Forgot Password</a>
             </form>
         </div>
-    <br><br><br><br>
+        <br><br><br><br>
     </div>
 {% endblock%}

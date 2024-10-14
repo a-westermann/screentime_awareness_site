@@ -14,27 +14,18 @@
 }
 .girl-phone-image {
     background: url('/static/girl_phone_background.png');
-    background-size: cover; /* will stretch the image to your div size while maintaining aspect ratio */
+    background-size: cover;
 
 }
 .mother-girl-book{
     background: url('/static/mother_kid_book_narrow.png');
     /*background-position: center;*/
-    background-size: auto 100%;
+    /*background-size: auto 100%;*/
+    /*height: fit-content;*/
+    background-size: cover;
     /*background-repeat: no-repeat;*/
     background-attachment: fixed;
     /*overflow: scroll;*/
-}
-.origami{
-    background-image: url('/static/origami.png' );
-    /*link: url('/activities/');*/
-    background-size: cover;
-    background-position: center;
-}
-.girl-happy{
-    background-image: url('/static/girl_happy.png');
-    background-size: cover;
-    background-position: bottom;
 }
 .padding-bottom{
     padding-bottom: 200px;
@@ -104,7 +95,14 @@ header {
 .buttons:hover, .buttons:focus, .buttons:active, .buttons.active, .open>.dropdown-toggle.buttons {
     color: black;
     background-color: white;
-    border-color: white; /*set the color you want here*/
+    border-color: white;
+}
+.clickable:hover, .buttons:focus, .buttons:active, .buttons.active, .open>.dropdown-toggle.buttons {
+    background-color: black;
+    border-color: white;
+}
+.clickable-reverse:hover{
+    background-color: coral;
 }
 .scale-up {
     scale: 2;
@@ -133,6 +131,8 @@ header {
     background-size: cover;
     background-position: center;
 }
+
+/*This is a BAD way to do it. Make it MODULAR*/
 .nih{
     background-image: url('/static/NIH-Emblem.png');
     background-size: cover;
@@ -151,6 +151,7 @@ header {
     background-position: left;
     background-color: rgb(128, 128, 128);
 }
+
 .hero {
     /*padding-bottom: 10%; !* = ( 600 / 1600 ) x 100 *!*/
     /*background-image: url('/static/reverse_gradient.png');*/
@@ -161,7 +162,7 @@ header {
 }
 .join-block{
     /*background-image: url('/static/reverse_gradient.png');*/
-    background-color: coral;
+    background-color: chocolate;
     background-size: contain;
     background-repeat: repeat-x;
 }
@@ -274,6 +275,34 @@ header {
     margin-top: 80px;
 }
 
+.image-center{
+    display: flex;
+    justify-content: center;
+}
+
+
+.enlarge-onhover{
+    border: 1px solid black;
+    overflow: hidden;
+}
+.enlarge-onhover img{
+    transition: all 0.8s ease-in-out;
+    object-fit: cover;
+    width: auto;
+    height: 100%;
+}
+.enlarge-onhover span{
+    transition: all 0.8s ease-in-out;
+    object-fit: cover;
+    width: auto;
+    height: 100%;
+}
+.enlarge-onhover:hover img{
+    transform: scale(1.2, 1.2);
+}
+.enlarge-onhover:hover span{
+    transform: scale(1.2, 1.2);
+}
 
 /* Media - sizing based on screen size */
 @media (min-width: 0px) {
@@ -283,6 +312,9 @@ header {
     .index-image_adjustments{
         background-position: calc(50% - 200px) 16px;
         background-size: 380%;
+    }
+    .mother-girl-book-size{
+        background-position: calc(50% + 80px) 50%;
     }
     .index-text-shadow{
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -307,10 +339,12 @@ header {
     header{
         font-size: 2vw;
     }
-
     .index-image_adjustments{
         background-position: 70% 95%;
         background-size: cover;
+    }
+    .mother-girl-book-size{
+        background-position: 50%;
     }
     .index-text-shadow{
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
@@ -339,6 +373,9 @@ header {
         background-position: 50% 75%;
         background-size: cover;
     }
+    .mother-girl-book-size{
+        background-position: 50%;
+    }
     .index-text-shadow{
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
     }
@@ -365,6 +402,9 @@ header {
     .index-image_adjustments{
         background-position: 50% -50px;
         background-size: cover;
+    }
+    .mother-girl-book-size{
+        background-position: 50%;
     }
     .index-text-shadow{
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
