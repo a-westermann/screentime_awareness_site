@@ -29,8 +29,8 @@
 </script>
 <script>
     window.onclick = function() {
-  $('.navbar-collapse').collapse('hide');
-};
+        $('.navbar-collapse').collapse('hide');
+    };
 </script>
 
 <body>
@@ -45,8 +45,16 @@
 
         <div class="col-2 header-block-one clickable">
             <div class="text-light align-content-center text-center fw-bold text-shadow" style="height:inherit">
-                <a class="text-decoration-none text-light align-content-center" style="width:100%; height:100%;
-                display:block" href="/#login_box">Log In</a>
+                {% if logged_out or logged_out_learn_more %}
+                    <a class="text-decoration-none text-light align-content-center" style="width:100%; height:100%;
+                display:block" href="/#login_box">
+                    Log In
+                {% else %}
+                    <a class="text-decoration-none text-light align-content-center" style="width:100%; height:100%;
+                display:block" href="/home/">
+                    Home
+                {% endif %}
+                </a>
             </div>
         </div>
         <div class="col-2 header-block-two clickable">
@@ -69,19 +77,22 @@
                             {% if logged_out_learn_more or logged_out %}
                                 <a class="dropdown-item text-dark" style="width:100%; height:100%; display:block"
                                    href="/#login_box">Account</a>
-{#                            {% elif logged_out %}#}
-{#                                <a class="dropdown-item text-dark text-large" style="width:100%; height:100%; display:block"#}
-{#                                   href="/#login_box">Account</a>#}
+                                {#                            {% elif logged_out %}#}
+                                {#                                <a class="dropdown-item text-dark text-large" style="width:100%; height:100%; display:block"#}
+                                {#                                   href="/#login_box">Account</a>#}
+                                <a class="dropdown-item text-dark" style="width:100%; height:100%; display:block"
+                                   href="#">Contact Us</a>
                             {% else %}
                                 <a class="dropdown-item text-dark" style="width:100%; height:100%; display:block"
                                    href="/account/">Account</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item text-dark" style="width:100%; height:100%; display:block"
+                                   href="#">Contact Us</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-dark" style="width:100%; height:100%; display:block"
                                    href="/logout=<True>/">Log out</a>
                             {% endif %}
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-dark" style="width:100%; height:100%; display:block"
-                               href="#">Contact Us</a>
+
                         </li>
                     </ul>
                 </div>
@@ -94,11 +105,10 @@
 {#    <div class="container-fluid dev-banner text-white text-center text-larger fw-bold">#}
 {#        &nbsp<br>DEV MODE<br>&nbsp</div>#}
 {#{% endif %}#}
-<div class="hero">
+<div class="hero padding-top">
     {% block content %}
     {% endblock %}
 </div>
-
 {#<div class="flex-container" style="padding-top: 50px; padding-bottom: 50px;">#}
 {#    <div class="row">#}
 {#    <footer class="masthead mb-auto">#}
