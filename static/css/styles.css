@@ -86,6 +86,12 @@ header {
     color: white;
     font-weight: bold;
 }
+.btn-yellow{
+    background-color: #ffbb00;
+    border-color: white;
+    color: white;
+    font-weight: bold;
+}
 .btn-xl {
     padding: 20px 30px;
     border-radius: 10px;
@@ -133,23 +139,26 @@ header {
 }
 
 /*This is a BAD way to do it. Make it MODULAR*/
+.learn-more-jumbo{
+    border-style: solid;
+    border-color: coral;
+    }
 .nih{
     background-image: url('/static/NIH-Emblem.png');
     background-size: cover;
     background-position: center;
-    background-color: rgb(128, 128, 128);
+    /*background-color: rgb(128, 128, 128);*/
 }
 .fairplay{
     background-image: url('/static/fairplay_emblem.png');
-    background-size: cover;
-    background-position: left;
-    background-color: rgb(128, 128, 128);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .healthychildren{
     background-image: url('/static/healthychildren_emblem.png');
     background-size: cover;
     background-position: left;
-    background-color: rgb(128, 128, 128);
 }
 
 .hero {
