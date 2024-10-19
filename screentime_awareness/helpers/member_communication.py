@@ -3,14 +3,6 @@ from screentime_awareness.helpers import db, security
 
 
 def email_pw_recovery(email_address: str):
-    #TODO: Generate a unique identifier that links this email address to a
-    # specific password reset url
-    # The link needs to be generated at the time of this process
-    # Save the email and UID in the db. Then when they follow the link
-    #  you can select the dbo.user record by joining on the link uid table
-    # Set up a regular process that expires the links in the db after x minutes
-    # Clear the records out when they expire so the table is empty by default
-
     # insert into db a random link associated with the user's email
     dbc = db.DBC()
     results = dbc.select(f"select * from forgot_pw where email_address = '{email_address}';")
