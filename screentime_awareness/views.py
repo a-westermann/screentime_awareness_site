@@ -165,8 +165,6 @@ def donate(request):
 def ember(request):
     dbc = db.DBC()
     inventory = dbc.select("select * from shop_inventories;",)
-    for row in inventory:
-        row.description = row.description.replace('\n', '<br>')
     context = {'items': inventory}
     return render(request, 'dnd/ember.html', context=context)
 
