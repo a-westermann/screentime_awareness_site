@@ -166,7 +166,7 @@ def ember(request):
     dbc = db.DBC()
     try:
         inventory = dbc.select("select * from shop_inventories where shop = 'ember_and_ink' limit 1;",)
-        context = {'items': inventory}
+        context = {'inv': inventory}
     except SystemError as e:
         context = {'items': e}
     return render(request, 'dnd/ember.html', context=context)
