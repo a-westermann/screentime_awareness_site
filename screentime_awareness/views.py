@@ -173,4 +173,4 @@ def vaelstrom(request):
     inventory = dbc.select("select * from shop_inventories where shop = 'Vaelstroms Armaments' "
                            "order by special_text, item_name;",)
     context = {'items': inventory}
-    return render(request, 'dnd/ember.html', context=context)
+    return render(request, 'dnd/vaelstrom.html', context=context)
