@@ -165,7 +165,7 @@ def donate(request):
 def ember(request):
     dbc = db.DBC()
     try:
-        inventory = dbc.select("select * from shop_inventories where shop = 'ember_and_ink' limit 1",)
+        inventory = dbc.select("select * from shop_inventories where shop = 'ember_and_ink' limit 1;",)
         context = {'items': inventory}
     except SystemError as e:
         context = {'items': e}
