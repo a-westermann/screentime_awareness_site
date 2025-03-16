@@ -25,5 +25,8 @@ urlpatterns = [
     # path('reset_pw/reset_complete=<reset_complete>/', views.reset_pw, name='reset_pw'),
     path('activities/', views.activities, name='activities'),
     path('learnmore/', views.learn_more, name='learn_more'),
-    path('donate/', views.donate, name='donate')
+    path('donate/', views.donate, name='donate'),
+
+    # dnd
+    path('ember&ink/', views.ember, name='ember&ink'),
 ]

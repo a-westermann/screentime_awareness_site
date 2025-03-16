@@ -8,6 +8,8 @@ import sys
 
 
 def index(request, invalid_login=False, logout=False):
+    # ip = requests.get('https://checkip.amazonaws.com')
+    # print(ip)
     context = {}
     if 'runserver' in sys.argv:
         context['dev'] = True
@@ -156,3 +158,9 @@ def learn_more(request):
 
 def donate(request):
     return render(request, 'screentime_awareness/donate.html')
+
+
+# dnd - each shop has a link, no index page. That way I can only give them the menus as I want
+def ember(request):
+    return render(request, 'dnd/ember.html')
+

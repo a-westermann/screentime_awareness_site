@@ -33,6 +33,31 @@
     };
 </script>
 
+{#<script>#}
+{#    // Add the 'fade-in' class to the body element on load#}
+{#    window.addEventListener('load', function() {#}
+{#        document.body.classList.add('fade-in');#}
+{#    });#}
+{#    unfade(document.body)#}
+{#</script>#}
+{##}
+{#<script>#}
+{#    function unfade(element) {#}
+{#    let op = 0.1;  // initial opacity#}
+{#    element.style.display = 'block';#}
+{#    let timer = setInterval(function () {#}
+{#        if (op >= 1){#}
+{#            clearInterval(timer);#}
+{#        }#}
+{#        element.style.opacity = op;#}
+{#        element.style.filter = 'alpha(opacity=' + op * 100 + ")";#}
+{#        op += op * 0.1;#}
+{#    }, 10);#}
+{#}#}
+{#</script>#}
+
+
+
 <body>
 <header class="container-fluid fixed-top">
     <div class="row">
@@ -127,6 +152,7 @@
 {#    </footer>#}
 {#        </div>#}
 {#</div>#}
+
 
 <!-- JavaScript loads -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
