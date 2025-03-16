@@ -1,164 +1,72 @@
-{% extends "base.html" %}
-{% block title %}Go Beyond the Screen{% endblock %}
-{% block content %}
-    {# scroll down to the login box if redirected due to invalid credentials #}
-    {% if invalid_login %}
-        <script>
-            history.scrollRestoration = 'manual';
-            setTimeout(function() {window.scrollTo(0, 9999);},1)
-        </script>
-    {% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{% block title %}{% endblock %}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    <!--  {% bootstrap_javascript %}-->
 
-    <div class="container-fluid">
+    {# Style sheets #}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+</head>
+
+<body>
+<div class="text-largerer text-decoration-none text-center text-dark white-shadow" style="margin: 0 50px 50px;">
+    <br>Ember & Ink - enchanted tattoos<br><br></div>
+
+<!--Table Headers-->
+<div class="container-fluid">
+    <div class="row">
         <div class="row">
-            <div class="scrolling_image_index index-image_adjustments">
-                <div class="row">
-                    <div class="col-lg-1">&nbsp</div>
-                    <div class="col-lg-6  padding-bom padding-top">
-                        <br><br>
-                        <a class="index-hero-text fw-bold lh-1 mb-3 text-light index-text-shadow">BEYOND<br>THE
-                            <!-- This gradient or chocolate?-->
-                        </a><span class="index-hero-text fw-bold lh-1 mb-3 orange-white-gradient"
-                                  style="font-family:Poppins, sans-serif">SCREEN</span>
-                        <br><br><br><br>
-                        <p class="text-large text-light fw-bold index-text-shadow">Overuse of digital screen devices damages a child's social development.
-                            <br><br>Are you doing everything you can to protect your child?</p>
-                        <br><br>
-                        <div class = "row padding-top" style="padding-bottom:30px">
-                            <div class = "col-md-4">
-                                <a href="#login_box" class="btn btn-xl buttons">
-                                    Get Started</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-4  padding-bom padding-top">
+                <p class="text-large fw-bold lh-1 mb-3">Item Name</p>
             </div>
-        </div>
-    </div>
-    <br><br><br><br>
-
-
-    <div class="container-fluid text-center" style="padding-top: 50px">
-        <div class="row">
-            <div class="col-lg-3 d-flex flex-column enlarge-onhover line-height-md top-buffer" style="padding-top: 10px">
-                <span class="index-stats-text text-center chocolate fw-bold">DEVELOPMENTAL<br>DELAYS</span>
-                <p class="text-dark text-large fw-bold line-height-md"><br>LANGUAGE / SOCIAL SKILLS<br>PROBLEM-SOLVING</p>
+            <div class="col-lg-2  padding-bom padding-top">
+                <p class="text-large fw-bold lh-1 mb-3">Price</p>
             </div>
-            <div class="col-lg-3 d-flex flex-column enlarge-onhover line-height-md top-buffer" style="padding-top: 10px">
-                <span class="index-stats-text chocolate fw-bold">PHYSICAL<br>PROBLEMS</span>
-                <p class="text-dark text-larger fw-bold line-height-md"><br>OBESITY<br>REDUCED SLEEP</p>
-            </div>
-            <div class="col-lg-3 d-flex flex-column enlarge-onhover line-height-md top-buffer" style="padding-top: 10px">
-                <span class="index-stats-text chocolate fw-bold">BEHAVIORAL<br>ISSUES</span>
-                <p class="text-dark text-larger fw-bold line-height-md"><br>SIMILAR TO ADHD<br>& AUTISM</p>
-            </div>
-            <div class="col-lg-3 d-flex flex-column enlarge-onhover line-height-md top-buffer" style="padding-top: 10px">
-                <span class="index-stats-text-num text-danger fw-bold">1</span>
-                <p class="text-dark text-larger fw-bold line-height-md"><br>CHANCE TO GET<br>IT RIGHT</p>
+            <div class="col-lg-6  padding-bom padding-top">
+                <p class="text-large fw-bold lh-1 mb-3">Special Text</p>
             </div>
         </div>
     </div>
 
+    <!--Items-->
+{#    <ul>#}
+{#        {% for item in items %}#}
+{#            <div class="row">#}
+{#                <div class="row">#}
+{#                    <div class="col-lg-4  padding-bom padding-top">#}
+{#                        <a class="text-large fw-bold lh-1 mb-3">{{ item.item_name }}</a>#}
+{#                    </div>#}
+{#                    <div class="col-lg-2  padding-bom padding-top">#}
+{#                        <p class="text-large fw-bold lh-1 mb-3">{{ item.price }}</p>#}
+{#                    </div>#}
+{#                    <div class="col-lg-6  padding-bom padding-top">#}
+{#                        <p class="text-large fw-bold lh-1 mb-3">{{ item.special_text }}</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+</div>
 
 
-    <div class="container-fluid" style="padding-top: 250px;">
-        <div class="row">
-            <div class="col-lg-6 flex-column d-flex background-dark text-white enlarge-onhover">
-                <span class="text-largerer fw-bold text-center text-shadow" style="margin: 150px 80px 250px;">
-                    About Go Beyond the Screen<br>
-                    <span class="text-small fw-bold" >We're dedicated to empowering parents with the knowledge they need to stop
-                        the detrimental influence of screened devices on their children</span></span>
-            </div>
-            <div class="col-lg-2 enlarge-onhover image-center">
-                <img src="{{ STATIC_URL }}/static/origami.png" class="" alt="">
-            </div>
-            <div class="col-lg-4 flex-column d-flex background-orange text-white enlarge-onhover">
-                    <span class="text-largerer fw-bold text-center" style="margin: 150px 50px 250px;">How you can help<br>
-                    <span class="text-small fw-bold" >Your child's social
-                        development starts with you.</span></span>
-            </div>
-        </div>
-        <div class="row" style="margin-bottom: 50px">  <!--  style="height: 800px;" -->
-            <div class="col-lg-6 mother-girl-book flex mother-girl-book-size">
-            </div>
-            <div class="col-lg-6  mother-girl-book flex mother-girl-book-size">
-                <div class="row" style="height: 400px; padding: 100px">
-                    <p class="text-largerer text-white fw-bold"></p>
-                </div>
-                <div class="row">  <!--style="height: 400px;" -->
-                    <div class="flex-column d-flex col-xl-6 background-yellow text-shadow justify-content-center enlarge-onhover"
-                         style="padding-top: 200px; padding-bottom: 200px;">
-                        <span class="text-larger text-white fw-bold text-center" style="padding-left: 60px; padding-right: 60px;">
-                            Discover tons of free activities for you and your child.
-                        </span>
-                    </div>
-                    <div class="col-xl-6 enlarge-onhover" style="padding:0">
-                        <img src="{{ STATIC_URL }}/static/girl_happy.png" class="img-fluid" alt="">
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <!-- Drop space for articles/news -->
-    <div class="">
-        <div class="" style="margin: 50px 20px 180px;">
-            <div class="row">
-                <div class="col-1"></div>
-                <div class="col-11">
-                    <p class="text-dark fw-bold text-xl" style="margin: 10px 0 10px;">
-                        <br>LATEST NEWS<span class="chocolate text-large">.</span></p>
-                </div>
-            </div>
-            <br><br><br><br>
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-8">
-                    <p class="text-dark text-larger">
-                        Check back soon to see recent published articles detailing the issue.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="">
-        <div id="login_box" class="join-block" style="margin: 50px 0 10px;">
-            <p class="text-white fw-bold text-xl text-center" style="margin: 10px 0 10px;">
-                <br>JOIN OTHER CARING PARENTS</p>
-            <p class="text-white fw-bold  text-larger text-center">
-                Discover tons of free resources to help your child beat screen addiction<br><br><br></p>
-        </div>
-
-        <div class="parent container d-flex justify-content-center align-items-center">
-            <form id='login form' method="post" action="{% url 'log_in_user' %}">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="email_address_username" class=""></label>
-                    <input type="text" maxlength="50" class="form-control" id="email_address_username"
-                           name="email_address_username"
-                           aria-describedby="emailHelp" placeholder="Email or Username">
-                    <small id="emailHelp" class="form-text text-small text-faint">
-                        We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                    <label for="pw" typeof="string" class=""></label>
-                    <input type="password" class="form-control" id="pw" name="pw" placeholder="Password">
-                </div>
-                {% if invalid_login %}
-                    <a class="text-warning text-danger white-shadow text-large text-decoration-none">
-                        Invalid email or password</a>
-                {% endif %}
-                <button type="submit" class="btn buttons" style='margin-top: 10px'>Log in</button>
-                <a href="/register">
-                    <button  type="button" class="btn btn-secondary" style='margin-top: 10px'>Register</button>
-                </a>
-                <br>
-                <a class="link-primary text-small" href="/forgot_pw">Forgot Password</a>
-            </form>
-        </div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    </div>
-{% endblock%}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
