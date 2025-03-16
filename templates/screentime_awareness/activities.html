@@ -1,23 +1,24 @@
 {% extends "base.html" %}
 {% block title %}Activites - Beyond the Screen{% endblock %}
 {% block content %}
-    <div class="container py-4 text-light text-large">
-        <a href="/activities/" class="text-decoration-none white-shadow text-dark">
-            <div class="row align-items-md-stretch p-2 mb-4 bg-body-tertiary">
-                <div class="container-fluid py-5 rounded-3 jumbotron-main">
-                    <h1 class="display-5 fw-bold">Activities</h1>
-                </div>
+<div class="container py-4 text-light text-large">
+    <a href="/activities/" class="text-decoration-none white-shadow text-dark">
+        <div class="row align-items-md-stretch p-2 mb-4 bg-body-tertiary">
+            <div class="container-fluid py-5 rounded-3 jumbotron-main">
+                <h1 class="display-5 fw-bold">Activities</h1>
             </div>
-        </a>
-    </div>
-    <div class="text-center chocolate text-decoration-none fw-bold font">
-        <p class="text-large">We've put together a ton of fun activities geared toward healthy social development.
-            <br><br>See what we have for you and your child to enjoy together!
-            <br><br>
-        </p>
-    </div>
+        </div>
+    </a>
+</div>
+<div class="text-center chocolate text-decoration-none fw-bold font">
+    <p class="text-large">We've put together a ton of fun activities geared toward healthy social development.
+        <br><br>See what we have for you and your child to enjoy together!
+        <br><br>
+    </p>
+</div>
 
-    <!-- Index link table -->
+<!-- Index link table -->
+<div class="container-fluid"  style="padding-bottom: 150px;">
     <table class="table table-light">
         <thead><tr><td class="text-faint fw-bold">Jump to</td></tr></thead>
         <tbody>
@@ -35,61 +36,61 @@
         </tr>
         </tbody>
     </table>
+</div>
 
 
-
-    <br><br><br>
-    <!-- Printables According -->
-    <p id="printables" class="lead fw-bold text-large white-shadow text-dark" style="margin-left:20px">Printable Activity Sheets</p>
-    {% for printable in printables %}
-        <div class="accordion" id="printable-{{ forloop.counter }}">
-            <div class="accordion-item btn-outline-secondary">
-                <h2 class="accordion-header" id="printable-heading-{{ forloop.counter }}">
-                    <button class="accordion-button collapsed" type="button" data-toggle="collapse"
-                            data-target="#printable-collapse-{{ forloop.counter }}" aria-expanded="true"
-                            aria-controls="printable-collapse-{{ forloop.counter }}">
-                        <a class="lead fw-bold text-decoration-none text-dark">{{ printable.title }}</a>
-                    </button>
-                </h2>
-                <div id="printable-collapse-{{ forloop.counter }}" class="accordion-collapse collapse"
-                     aria-labelledby="printable-heading-{{ forloop.counter }}" data-parent="#printable-{{ forloop.counter }}">
-                    <div class="accordion-body">
-                        {{ printable.description }}
-                        <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px"
-                                   onclick= "window.open('{{ printable.link  }}')"
-                                   role="button">Download</a>
-                    </div>
-                </div>
+<br><br><br>
+<!-- Printables According -->
+<p id="printables" class="lead fw-bold text-large white-shadow text-dark" style="margin-left:20px">Printable Activity Sheets</p>
+{% for printable in printables %}
+<div class="accordion" id="printable-{{ forloop.counter }}">
+    <div class="accordion-item btn-outline-secondary">
+        <h2 class="accordion-header" id="printable-heading-{{ forloop.counter }}">
+            <button class="accordion-button collapsed" type="button" data-toggle="collapse"
+                    data-target="#printable-collapse-{{ forloop.counter }}" aria-expanded="true"
+                    aria-controls="printable-collapse-{{ forloop.counter }}">
+                <a class="lead fw-bold text-decoration-none text-dark">{{ printable.title }}</a>
+            </button>
+        </h2>
+        <div id="printable-collapse-{{ forloop.counter }}" class="accordion-collapse collapse"
+             aria-labelledby="printable-heading-{{ forloop.counter }}" data-parent="#printable-{{ forloop.counter }}">
+            <div class="accordion-body">
+                {{ printable.description }}
+                <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px"
+                           onclick= "window.open('{{ printable.link  }}')"
+                           role="button">Download</a>
             </div>
         </div>
-    {% endfor %}
+    </div>
+</div>
+{% endfor %}
 
 
 
-    <!--Acordian 2 -->
-    <br><br>
-    <p id="ideas" class="lead fw-bold text-large white-shadow text-dark" style="margin-left:20px">Text Ideas? Or Links to other sites?</p>
-    {% for idea in ideas %}
-        <div class="accordion" id="idea-{{ forloop.counter }}">
-            <div class="accordion-item btn-outline-secondary">
-                <h2 class="accordion-header" id="heading-{{ forloop.counter }}">
-                    <button class="accordion-button collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapse-{{ forloop.counter }}" aria-expanded="true"
-                            aria-controls="collapse-{{ forloop.counter }}">
-                        <a class="lead fw-bold text-decoration-none text-dark">{{ idea.title }}</a>
-                    </button>
-                </h2>
-                <div id="collapse-{{ forloop.counter }}" class="accordion-collapse collapse"
-                     aria-labelledby="heading-{{ forloop.counter }}" data-parent="#idea-{{ forloop.counter }}">
-                    <div class="accordion-body">
-                        {{ idea.description }}
-                        <a>Do we need a link to anything for this?</a>
-<!--{#                        <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px"#}-->
-<!--{#                                   onclick= "window.open('{{ idea.link  }}')"#}-->
-<!--{#                                   role="button">Download</a>#}-->
-                    </div>
-                </div>
+<!--Acordian 2 -->
+<br><br>
+<p id="ideas" class="lead fw-bold text-large white-shadow text-dark" style="margin-left:20px">Text Ideas? Or Links to other sites?</p>
+{% for idea in ideas %}
+<div class="accordion" id="idea-{{ forloop.counter }}">
+    <div class="accordion-item btn-outline-secondary">
+        <h2 class="accordion-header" id="heading-{{ forloop.counter }}">
+            <button class="accordion-button collapsed" type="button" data-toggle="collapse"
+                    data-target="#collapse-{{ forloop.counter }}" aria-expanded="true"
+                    aria-controls="collapse-{{ forloop.counter }}">
+                <a class="lead fw-bold text-decoration-none text-dark">{{ idea.title }}</a>
+            </button>
+        </h2>
+        <div id="collapse-{{ forloop.counter }}" class="accordion-collapse collapse"
+             aria-labelledby="heading-{{ forloop.counter }}" data-parent="#idea-{{ forloop.counter }}">
+            <div class="accordion-body">
+                {{ idea.description }}
+                <a>Do we need a link to anything for this?</a>
+                <!--{#                        <br><br><a class="btn buttons btn-lg" style="margin-bottom: 10px; margin-left: 8px"#}-->
+                <!--{#                                   onclick= "window.open('{{ idea.link  }}')"#}-->
+                <!--{#                                   role="button">Download</a>#}-->
             </div>
         </div>
-    {% endfor %}
+    </div>
+</div>
+{% endfor %}
 {% endblock %}
