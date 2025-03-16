@@ -164,7 +164,7 @@ def donate(request):
 # Could I just have 1 view that looks up the shop name based on the url?
 def ember(request):
     dbc = db.DBC()
-    inventory = dbc.select("select * from shop_inventories;",)
+    inventory = dbc.select("select * from shop_inventories order by special_text;",)
     context = {'items': inventory}
     return render(request, 'dnd/ember.html', context=context)
 
