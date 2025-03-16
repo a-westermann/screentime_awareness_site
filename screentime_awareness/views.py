@@ -163,5 +163,8 @@ def donate(request):
 # dnd - each shop has a link, no index page. That way I can only give them the menus as I want
 # Could I just have 1 view that looks up the shop name based on the url?
 def ember(request):
-    return render(request, 'dnd/ember.html')
+    dbc = db.DBC()
+    inventory = dbc.select("select * from shop_inventories where shop = 'ember&ink'")
+    context = {'items':inventory}
+    return render(request, 'dnd/ember.html', context=context)
 

@@ -22,21 +22,42 @@
 <div class="text-largerer text-decoration-none text-center text-dark white-shadow" style="margin: 0 50px 50px;">
     <br>Ember & Ink - enchanted tattoos<br><br></div>
 
+<!--Table Headers-->
 <div class="container-fluid">
     <div class="row">
-            <div class="row">
-                <div class="col-lg-4  padding-bom padding-top">
-                    <p class="text-large fw-bold lh-1 mb-3">Item Name</p>
-                </div>
-                <div class="col-lg-2  padding-bom padding-top">
-                    <p class="text-large fw-bold lh-1 mb-3">Price</p>
-                </div>
-                <div class="col-lg-6  padding-bom padding-top">
-                    <p class="text-large fw-bold lh-1 mb-3">Special Text</p>
-                </div>
+        <div class="row">
+            <div class="col-lg-4  padding-bom padding-top">
+                <p class="text-large fw-bold lh-1 mb-3">Item Name</p>
+            </div>
+            <div class="col-lg-2  padding-bom padding-top">
+                <p class="text-large fw-bold lh-1 mb-3">Price</p>
+            </div>
+            <div class="col-lg-6  padding-bom padding-top">
+                <p class="text-large fw-bold lh-1 mb-3">Special Text</p>
             </div>
         </div>
+    </div>
+
+    <!--Items-->
+    <ul>
+        {% for item in items %}
+            <div class="row">
+                <div class="row">
+                    <div class="col-lg-4  padding-bom padding-top">
+                        <a class="text-large fw-bold lh-1 mb-3">{{ item.item_name }}</a>
+                    </div>
+                    <div class="col-lg-2  padding-bom padding-top">
+                        <p class="text-large fw-bold lh-1 mb-3">{{ item.price }}</p>
+                    </div>
+                    <div class="col-lg-6  padding-bom padding-top">
+                        <p class="text-large fw-bold lh-1 mb-3">{{ item.special_text }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </ul>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
