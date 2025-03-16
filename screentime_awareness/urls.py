@@ -29,4 +29,5 @@ urlpatterns = [
 
     # dnd
     path('ember&ink/', views.ember, name='ember&ink'),
+    path('vaelstrom/', views.ember, name='vaelstrom'),
 ]
