@@ -43,14 +43,17 @@
         {% for item in items %}
             <div class="row">
                 <div class="row">
-                    <div class="col-lg-4  padding-bom padding-top">
-                        <a class="text-large fw-bold lh-1 mb-3">{{ item.item_name }}</a>
+                    <div class="col-lg-2  padding-bom padding-top">
+                        <p class="text-large fw-bold lh-1 mb-3">{{ item.item_name }}</p>
                     </div>
                     <div class="col-lg-2  padding-bom padding-top">
                         <p class="text-large fw-bold lh-1 mb-3">{{ item.price }}</p>
                     </div>
-                    <div class="col-lg-6  padding-bom padding-top">
+                    <div class="col-lg-3  padding-bom padding-top">
                         <p class="text-large fw-bold lh-1 mb-3">{{ item.special_text }}</p>
+                    </div>
+                    <div class="col-lg-5  padding-bom padding-top">
+                        <p class="text-large fw-bold lh-1 mb-3">{{ item.description }}</p>
                     </div>
                 </div>
             </div>
