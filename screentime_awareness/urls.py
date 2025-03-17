@@ -31,4 +31,5 @@ urlpatterns = [
     path('Ember&Ink/', views.shop, name='shop'),
     path('Vaelstrom_Armaments/', views.shop, name='shop'),
     path('Silver_Loom/', views.shop, name='shop'),
+    path('Enchanted_Emporium/', views.shop, name='shop'),
 ]
