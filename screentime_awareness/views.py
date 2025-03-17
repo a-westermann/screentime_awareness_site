@@ -162,7 +162,7 @@ def donate(request):
 
 # dnd - each shop has a link, no index page. That way I can only give them the menus as I want
 def shop(request):
-    shop_name = request.path.split('/')[-1]
+    shop_name = request.path.split('/')[-2]
     dbc = db.DBC()
     inventory = dbc.select(
         f"select * from shop_inventories where shop = '{shop_name}' order by special_text, item_name;", )
