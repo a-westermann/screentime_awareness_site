@@ -256,6 +256,9 @@ header {
 .text-warning{
     color: gold;
 }
+.text-darkyellow{
+    color: darkgoldenrod;
+}
 .text-shadow{
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
