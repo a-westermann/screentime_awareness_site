@@ -161,16 +161,23 @@ def donate(request):
 
 
 # dnd - each shop has a link, no index page. That way I can only give them the menus as I want
-# Could I just have 1 view that looks up the shop name based on the url?
-def ember(request):
+def shop(request):
+    shop_name = request.path.split('/')[-1]
     dbc = db.DBC()
-    inventory = dbc.select("select * from shop_inventories where shop = 'ember&ink' order by special_text, item_name;",)
+    inventory = dbc.select(
+        f"select * from shop_inventories where shop = '{shop_name}' order by special_text, item_name;", )
     context = {'items': inventory}
-    return render(request, 'dnd/ember.html', context=context)
+    return render(request, 'dnd/shop.html', context=context)
 
-def vaelstrom(request):
-    dbc = db.DBC()
-    inventory = dbc.select("select * from shop_inventories where shop = 'Vaelstroms Armaments' "
-                           "order by special_text, item_name;",)
-    context = {'items': inventory}
-    return render(request, 'dnd/vaelstrom.html', context=context)
+# def ember(request):
+#     dbc = db.DBC()
+#     inventory = dbc.select("select * from shop_inventories where shop = 'ember&ink' order by special_text, item_name;",)
+#     context = {'items': inventory}
+#     return render(request, 'dnd/ember.html', context=context)
+#
+# def vaelstrom(request):
+#     dbc = db.DBC()
+#     inventory = dbc.select("select * from shop_inventories where shop = 'Vaelstroms Armaments' "
+#                            "order by special_text, item_name;",)
+#     context = {'items': inventory}
+#     return render(request, 'dnd/vaelstrom.html', context=context)

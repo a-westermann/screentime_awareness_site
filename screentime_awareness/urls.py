@@ -28,6 +28,7 @@ urlpatterns = [
     path('donate/', views.donate, name='donate'),
 
     # dnd
-    path('ember&ink/', views.ember, name='ember&ink'),
-    path('vaelstrom/', views.vaelstrom, name='vaelstrom'),
+    path('Ember&Ink/', views.shop, name='shop'),
+    path('Vaelstrom_Armaments/', views.shop, name='shop'),
+    path('Silver_Loom/', views.shop, name='shop'),
 ]
