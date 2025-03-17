@@ -23,46 +23,46 @@
     <br>Ember & Ink - enchanted tattoos<br><br></div>
 
 <!--Table Headers-->
-<div class="container-fluid">
-    <div class="row">
-        <div class="row">
-            <div class="col-lg-2  padding-bom padding-top">
-                <p class="text-large fw-bold lh-1 mb-3">Item Name</p>
-            </div>
-            <div class="col-lg-2  padding-bom padding-top">
-                <p class="text-large fw-bold lh-1 mb-3">Price</p>
-            </div>
-            <div class="col-lg-3  padding-bom padding-top">
-                <p class="text-large fw-bold lh-1 mb-3">Note</p>
-            </div>
-            <div class="col-lg-5  padding-bom padding-top">
-                <p class="text-large fw-bold lh-1 mb-3">Description</p>
-            </div>
-        </div>
-    </div>
+{#<div class="container-fluid">#}
+{#    <div class="row">#}
+{#        <div class="row">#}
+{#            <div class="col-lg-2  padding-bom padding-top">#}
+{#                <p class="text-large fw-bold lh-1 mb-3">Item Name</p>#}
+{#            </div>#}
+{#            <div class="col-lg-2  padding-bom padding-top">#}
+{#                <p class="text-large fw-bold lh-1 mb-3">Price</p>#}
+{#            </div>#}
+{#            <div class="col-lg-3  padding-bom padding-top">#}
+{#                <p class="text-large fw-bold lh-1 mb-3">Note</p>#}
+{#            </div>#}
+{#            <div class="col-lg-5  padding-bom padding-top">#}
+{#                <p class="text-large fw-bold lh-1 mb-3">Description</p>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
 
     <!--Items-->
     <ul>
         {% for item in items %}
-            <div class="row">
-                <div class="row">
-                    <div class="col-lg-2  padding-bom padding-top">
-                        <p class="text-large fw-bold lh-1 mb-3">{{ item.item_name }}</p>
-                    </div>
-                    <div class="col-lg-2  padding-bom padding-top">
-                        <p class="text-large fw-bold lh-1 mb-3">{{ item.price }}</p>
-                    </div>
-                    <div class="col-lg-3  padding-bom padding-top">
-                        <p class="text-large fw-bold lh-1 mb-3">{{ item.special_text }}</p>
-                    </div>
-                    <div class="col-lg-5  padding-bom padding-top">
+{#            <div class="row">#}
+{#                <div class="row">#}
+{#                    <div class="col-lg-2  padding-bom padding-top">#}
+                        <br><br><br><p class="text-large fw-bold lh-1 mb-3">{{ item.item_name }}</p><br>
+{#                    </div>#}
+{#                    <div class="col-lg-2  padding-bom padding-top">#}
+                        <p class="text-large fw-bold lh-1 mb-3">Price: {{ item.price }}</p><br>
+{#                    </div>#}
+{#                    <div class="col-lg-3  padding-bom padding-top">#}
+                        <p class="text-large fw-bold lh-1 mb-3">{{ item.special_text }}</p><br>
+{#                    </div>#}
+{#                    <div class="col-lg-5  padding-bom padding-top">#}
                         <p class="text-large lh-1 mb-3">{{ item.description  | linebreaksbr }}</p>
-                    </div>
-                </div>
-            </div>
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
         {% endfor %}
     </ul>
-</div>
+{#</div>#}
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
