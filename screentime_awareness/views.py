@@ -167,8 +167,12 @@ def shop(request):
     dbc = db.DBC()
     inventory = dbc.select(
         f"select * from shop_inventories where shop = '{shop_name}' order by special_text, item_name;", )
-    inventory.description = format_html(inventory.description)
-    context = {'items': inventory,
+    formatted_inventory = []
+    for item in inventory:
+        item = dict(item)
+        item['description'] = format_html(item['description'])
+        formatted_inventory.append(item)
+    context = {'items': formatted_inventory,
                'shop_name': shop_name.replace('_', ' ')}
     return render(request, 'dnd/shop.html', context=context)
 
