@@ -5,6 +5,7 @@ from django.shortcuts import redirect
 from screentime_awareness.models import User
 import json
 import sys
+from django.utils.html import format_html
 
 
 def index(request, invalid_login=False, logout=False):
