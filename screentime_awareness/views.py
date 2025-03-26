@@ -182,9 +182,11 @@ def shop(request):
 def encyclopedia(request):
     try:
         encycl = defaultdict(lambda: defaultdict(list))  # Nested dict for section → subsection → entries
+        r = None
         with open('/home/ubuntu/dnd/shops/encyclopedia.csv', newline='', encoding='utf-8') as encycl_csv:
             reader = csv.DictReader(encycl_csv)
             for row in reader:
+                r = row
                 section = row['section']
                 subsection = row['subsection']
                 entry = {
@@ -192,7 +194,7 @@ def encyclopedia(request):
                     'description': row['description']
                 }
                 encycl[section][subsection].append(entry)
-        context = {'encycl': encycl}
+        context = {'encycl': encycl, 'r': r}
     except SystemError as e:
         context = {'encycl': {e}}
     return render(request, 'dnd/encyclo.html', context=context)
