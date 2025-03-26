@@ -27,46 +27,61 @@
 {% endif %}
 
 
+<div class="text-center">
+    <input type="text" id="searchInput" class="form-control" placeholder="Search encyclopedia..." onkeyup="searchEncyclopedia()">
+</div>
+
 <div class="accordion" id="encyclopediaAccordion">
     {% for section, subsections in encycl.items %}
         <div class="accordion-item">
-            <!-- Section Header -->
             <h2 class="accordion-header">
-                <button class="accordion-button text-large fw-bold text-dark" type="button" data-toggle="collapse" data-target="#section-{{ forloop.counter }}" aria-expanded="true">
+                <button class="accordion-button text-larger fw-bold text-dark" type="button" data-toggle="collapse" data-target="#section-{{ forloop.counter }}" aria-expanded="true">
                     {{ section }}
                 </button>
             </h2>
 
             <div id="section-{{ forloop.counter }}" class="accordion-collapse collapse hide" data-parent="#encyclopediaAccordion">
                 <div class="accordion-body">
-                    <div class="accordion" id="subsection-accordion-{{ forloop.counter }}">
-                        {% for subsection, entries in subsections.items %}
-                            <div class="accordion-item">
-                                <!-- Subsection Header -->
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed chocolate fw-bold" type="button" data-toggle="collapse" data-target="#subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" aria-expanded="false">
-                                        {{ subsection|default:"Misc" }}
-                                    </button>
-                                </h3>
 
-                                <div id="subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" class="accordion-collapse collapse">
-                                    <div class="accordion-body">
-                                        {% for entry in entries %}
-                                            <div class="entry">
-                                                <strong>{{ entry.title }}</strong>: {{ entry.description }}
-                                            </div>
-                                            <hr>
-                                        {% endfor %}
+                    {% if subsections is iterable and subsections.0 is not defined %}
+                        <div class="accordion" id="subsection-accordion-{{ forloop.counter }}">
+                            {% for subsection, entries in subsections.items %}
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header">
+                                        <button class="accordion-button collapsed chocolate text-large" type="button" data-toggle="collapse" data-target="#subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" aria-expanded="false">
+                                            {{ subsection|default:"Misc" }}
+                                        </button>
+                                    </h3>
+
+                                    <div id="subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            {% for entry in entries %}
+                                                <div class="entry">
+                                                    <strong>{{ entry.title }}</strong>: <span class="entry-description">{{ entry.description }}</span>
+                                                </div>
+                                                <hr>
+                                            {% endfor %}
+                                        </div>
                                     </div>
                                 </div>
+                            {% endfor %}
+                        </div>
+
+                    {% else %}
+                        {% for entry in subsections %}
+                            <div class="entry">
+                                <strong>{{ entry.title }}</strong>: <span class="entry-description">{{ entry.description }}</span>
                             </div>
+                            <hr>
                         {% endfor %}
-                    </div> <!-- End Subsection Accordion -->
+                    {% endif %}
+
                 </div>
             </div>
         </div>
     {% endfor %}
-</div> <!-- End Main Accordion -->
+</div>
+
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -82,57 +97,74 @@
 
 <script>
 function searchEncyclopedia() {
-    let input = document.getElementById("searchInput").value.toLowerCase();
+    let input = document.getElementById("searchInput").value.toLowerCase().trim();
     let sections = document.querySelectorAll(".accordion-item");
-    let found = false;
+    let foundAny = false;
 
     sections.forEach(section => {
         let sectionMatches = false;
         let subsections = section.querySelectorAll(".accordion-item");
+        let hasSubsections = subsections.length > 0;
+        let entries = section.querySelectorAll(".entry");
 
+        // Track subsection matches
         subsections.forEach(subsection => {
-            let entries = subsection.querySelectorAll(".entry");
             let subsectionMatches = false;
+            let subEntries = subsection.querySelectorAll(".entry");
 
-            entries.forEach(entry => {
+            subEntries.forEach(entry => {
                 let title = entry.querySelector("strong").innerText.toLowerCase();
                 let description = entry.querySelector(".entry-description").innerText.toLowerCase();
 
                 if (title.includes(input) || description.includes(input)) {
-                    entry.style.display = "block"; // Show the matching entry
+                    entry.style.display = "block"; // Show entry
                     subsectionMatches = true;
                     sectionMatches = true;
-                    found = true;
+                    foundAny = true;
                 } else {
                     entry.style.display = "none"; // Hide non-matching entries
                 }
             });
 
+            // Expand subsection if a match is found
             if (subsectionMatches) {
-                subsection.style.display = "block"; // Show subsection if it has matches
-                let button = subsection.querySelector(".accordion-button");
-                if (button) button.classList.remove("collapsed"); // Expand subsection
-                let collapseDiv = subsection.querySelector(".accordion-collapse");
-                if (collapseDiv) collapseDiv.classList.add("show");
+                subsection.style.display = "block";
+                subsection.querySelector(".accordion-collapse").classList.add("show");
+                subsection.querySelector(".accordion-button").classList.remove("collapsed");
             } else {
-                subsection.style.display = "none"; // Hide subsection if no matches
+                subsection.style.display = "none";
             }
         });
 
+        // If no subsections, check section-level entries
+        if (!hasSubsections) {
+            entries.forEach(entry => {
+                let title = entry.querySelector("strong").innerText.toLowerCase();
+                let description = entry.querySelector(".entry-description").innerText.toLowerCase();
+
+                if (title.includes(input) || description.includes(input)) {
+                    entry.style.display = "block";
+                    sectionMatches = true;
+                    foundAny = true;
+                } else {
+                    entry.style.display = "none";
+                }
+            });
+        }
+
+        // Expand section if it contains any matching subsections or entries
         if (sectionMatches) {
-            section.style.display = "block"; // Show section if it has matches
-            let button = section.querySelector(".accordion-button");
-            if (button) button.classList.remove("collapsed"); // Expand section
-            let collapseDiv = section.querySelector(".accordion-collapse");
-            if (collapseDiv) collapseDiv.classList.add("show");
+            section.style.display = "block";
+            section.querySelector(".accordion-collapse").classList.add("show");
+            section.querySelector(".accordion-button").classList.remove("collapsed");
         } else {
-            section.style.display = "none"; // Hide section if no matches
+            section.style.display = "none";
         }
     });
 
-    // If nothing is found, show a message
+    // Handle "No results found" message
     let message = document.getElementById("noResults");
-    if (!found) {
+    if (!foundAny) {
         if (!message) {
             message = document.createElement("div");
             message.id = "noResults";
@@ -140,7 +172,7 @@ function searchEncyclopedia() {
             document.getElementById("encyclopediaAccordion").parentNode.insertBefore(message, document.getElementById("encyclopediaAccordion"));
         }
     } else if (message) {
-        message.remove(); // Remove "No results found" message if something matches
+        message.remove();
     }
 }
 </script>
