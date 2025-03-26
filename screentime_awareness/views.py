@@ -196,7 +196,7 @@ def encyclopedia(request):
                 subsection = row['subsection']
                 entry = {
                     'title': row['title'],
-                    'description': format_html(row['description'])
+                    'description': ['description']
                 }
                 encycl[section][subsection].append(entry)
 
