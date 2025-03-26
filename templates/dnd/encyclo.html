@@ -21,13 +21,13 @@
 <body>
 <div class="text-largerer text-decoration-none text-center fw-bolder text-dark white-shadow" style="margin: 0 50px 50px;">
     <br>Campaign Encyclopedia<br><br></div>
-
+a
 
 <div class="container-fluid">
     <ul>
         {% for section, subsections in encyclopedia.items %}
         <h2>{{ section }}</h2>  <!-- Display Section Title -->
-a
+
         {% for subsection, entries in subsections.items %}
             {% if subsection %}  <!-- Only show subsection title if it exists -->
                 <h3>{{ subsection }}</h3>
