@@ -23,6 +23,25 @@
     <br>Campaign Encyclopedia<br><br></div>
 
 
+<div class="container-fluid">
+    <ul>
+        {% for section, subsections in encyclopedia.items %}
+        <h2>{{ section }}</h2>  <!-- Display Section Title -->
+
+        {% for subsection, entries in subsections.items %}
+            {% if subsection %}  <!-- Only show subsection title if it exists -->
+                <h3>{{ subsection }}</h3>
+            {% endif %}
+
+            {% for entry in entries %}
+                <div class="entry">
+                    <strong>{{ entry.title }}</strong>: {{ entry.description }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+    </ul>
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
