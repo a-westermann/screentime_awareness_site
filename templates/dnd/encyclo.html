@@ -21,11 +21,10 @@
 <body>
 <div class="text-largerer text-decoration-none text-center fw-bolder text-dark white-shadow" style="margin: 0 50px 50px;">
     <br>Campaign Encyclopedia<br><br></div>
-a
 
 <div class="container-fluid">
     <ul>
-        {% for section, subsections in encyclopedia.items %}
+        {% for section, subsections in encycl.items %}
         <h2>{{ section }}</h2>  <!-- Display Section Title -->
 
         {% for subsection, entries in subsections.items %}
