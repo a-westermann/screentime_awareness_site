@@ -27,24 +27,49 @@
 {% endif %}
 
 
-<div class="container-fluid">
-    <ul>
+<div class="container mt-4">
+    <h1 class="text-center">Campaign Encyclopedia</h1>
+
+    <div class="accordion" id="encyclopediaAccordion">
         {% for section, subsections in encycl.items %}
-        <h2>{{ section }}</h2>  <!-- Display Section Title -->
+        <div class="accordion-item">
+            <!-- Section Header -->
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#section-{{ forloop.counter }}" aria-expanded="true">
+                    {{ section }}
+                </button>
+            </h2>
 
-        {% for subsection, entries in subsections.items %}
-            {% if subsection and subsection != "" %}  <!-- Only show subsection title if it exists -->
-                <h4>{{ subsection }}</h4>
-            {% endif %}
+            <div id="section-{{ forloop.counter }}" class="accordion-collapse collapse show" data-bs-parent="#encyclopediaAccordion">
+                <div class="accordion-body">
+                    <div class="accordion" id="subsection-accordion-{{ forloop.counter }}">
+                        {% for subsection, entries in subsections.items %}
+                        <div class="accordion-item">
+                            <!-- Subsection Header -->
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" aria-expanded="false">
+                                    {{ subsection|default:"Miscellaneous" }}
+                                </button>
+                            </h3>
 
-            {% for entry in entries %}
-                <div class="entry">
-                    <strong>{{ entry.title }}</strong>: {{ entry.description }}
+                            <div id="subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    {% for entry in entries %}
+                                    <div class="entry">
+                                        <strong>{{ entry.title }}</strong>: {{ entry.description }}
+                                    </div>
+                                    <hr>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div> <!-- End Subsection Accordion -->
                 </div>
-            {% endfor %}
+            </div>
+        </div>
         {% endfor %}
-    {% endfor %}
-    </ul>
+    </div> <!-- End Main Accordion -->
 </div>
 
 
