@@ -192,7 +192,7 @@ def encyclopedia(request):
                     'description': row['description']
                 }
                 encycl[section][subsection].append(entry)
-        context = {'encycl': encycl}
+        context = {'encycl': dict(encycl)}  # django doesn't handle defaultdict well so convert now
     except Exception as e:
         context = {'encycl': {e}}
     return render(request, 'dnd/encyclo.html', context=context)
