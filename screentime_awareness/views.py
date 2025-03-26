@@ -179,6 +179,13 @@ def shop(request):
     return render(request, 'dnd/shop.html', context=context)
 
 
+
+def to_dict(d):
+    """ Recursively converts defaultdict to a normal dict """
+    if isinstance(d, defaultdict):
+        return {k: to_dict(v) for k, v in d.items()}
+    return d
+
 def encyclopedia(request):
     try:
         encycl = defaultdict(lambda: defaultdict(list))  # Nested dict for section → subsection → entries
@@ -192,7 +199,7 @@ def encyclopedia(request):
                     'description': row['description']
                 }
                 encycl[section][subsection].append(entry)
-        context = {'encycl': dict(encycl)}  # django doesn't handle defaultdict well so convert now
+        context = {'encycl': to_dict(encycl)}  # django doesn't handle defaultdict well so convert now
     except Exception as e:
         context = {'encycl': {e}}
     return render(request, 'dnd/encyclo.html', context=context)
