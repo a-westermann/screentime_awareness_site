@@ -181,7 +181,7 @@ def shop(request):
 
 def encyclopedia(request):
     encycl = defaultdict(lambda: defaultdict(list))  # Nested dict for section → subsection → entries
-    with open('/dnd/shops/encyclopedia.csv', newline='', encoding='utf-8') as encycl_csv:
+    with open('/home/ubuntu/dnd/shops/encyclopedia.csv', newline='', encoding='utf-8') as encycl_csv:
         reader = csv.DictReader(encycl_csv)
         for row in reader:
             section = row['section']
