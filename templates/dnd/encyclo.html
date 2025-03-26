@@ -27,9 +27,6 @@
 {% endif %}
 
 
-<div class="container mt-4">
-    <h1 class="text-center">Campaign Encyclopedia</h1>
-
     <div class="accordion" id="encyclopediaAccordion">
         {% for section, subsections in encycl.items %}
         <div class="accordion-item">
@@ -40,15 +37,15 @@
                 </button>
             </h2>
 
-            <div id="section-{{ forloop.counter }}" class="accordion-collapse collapse show" data-bs-parent="#encyclopediaAccordion">
+            <div id="section-{{ forloop.counter }}" class="accordion-collapse collapse hide" data-bs-parent="#encyclopediaAccordion">
                 <div class="accordion-body">
                     <div class="accordion" id="subsection-accordion-{{ forloop.counter }}">
                         {% for subsection, entries in subsections.items %}
                         <div class="accordion-item">
                             <!-- Subsection Header -->
                             <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" aria-expanded="false">
-                                    {{ subsection|default:"Miscellaneous" }}
+                                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" aria-expanded="false">
+                                    {{ subsection|default:"Misc" }}
                                 </button>
                             </h3>
 
