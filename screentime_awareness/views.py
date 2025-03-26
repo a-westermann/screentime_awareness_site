@@ -199,7 +199,22 @@ def encyclopedia(request):
                     'description': row['description']
                 }
                 encycl[section][subsection].append(entry)
+
+        # Alphabetize within each subsection for easy reference by players
+        for section in encycl:
+            for subsection in encycl[section]:
+                encycl[section][subsection] = sorted(encycl[section][subsection], key=lambda x: x['title'].lower())
+
+        # Create a new structure to detect sections with no subsections
+        formatted_encycl = {}
+        for section, subsections in encycl.items():
+            if len(subsections) == 1 and "" in subsections:  # No subsections exist
+                formatted_encycl[section] = subsections[""]  # Store as a flat list
+            else:
+                formatted_encycl[section] = subsections  # Keep subsections
+
         context = {'encycl': to_dict(encycl)}  # django doesn't handle defaultdict well so convert now
+
     except Exception as e:
         context = {'encycl': {e}}
     return render(request, 'dnd/encyclo.html', context=context)
