@@ -22,14 +22,17 @@
 <div class="text-largerer text-decoration-none text-center fw-bolder text-dark white-shadow" style="margin: 0 50px 50px;">
     <br>Campaign Encyclopedia<br><br></div>
 
-{{ encycl }}
+{% if error %}
+    <p>Error: {{ error }}</p>
+{% endif %}
+
 <div class="container-fluid">
     <ul>
         {% for section, subsections in encycl.items %}
         <h2>{{ section }}</h2>  <!-- Display Section Title -->
 
         {% for subsection, entries in subsections.items %}
-            {% if subsection %}  <!-- Only show subsection title if it exists -->
+            {% if subsection and subsection != "" %}  <!-- Only show subsection title if it exists -->
                 <h3>{{ subsection }}</h3>
             {% endif %}
 

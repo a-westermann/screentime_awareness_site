@@ -195,6 +195,6 @@ def encyclopedia(request):
                 }
                 encycl[section][subsection].append(entry)
         context = {'encycl': encycl, 'r': r}
-    except SystemError as e:
+    except Exception as e:
         context = {'encycl': {e}}
     return render(request, 'dnd/encyclo.html', context=context)
