@@ -6,6 +6,8 @@ from screentime_awareness.models import User
 import json
 import sys
 from django.utils.html import format_html
+import csv
+from collections import defaultdict
 
 
 def index(request, invalid_login=False, logout=False):
@@ -176,15 +178,18 @@ def shop(request):
                'shop_name': shop_name.replace('_', ' ')}
     return render(request, 'dnd/shop.html', context=context)
 
-# def ember(request):
-#     dbc = db.DBC()
-#     inventory = dbc.select("select * from shop_inventories where shop = 'ember&ink' order by special_text, item_name;",)
-#     context = {'items': inventory}
-#     return render(request, 'dnd/ember.html', context=context)
-#
-# def vaelstrom(request):
-#     dbc = db.DBC()
-#     inventory = dbc.select("select * from shop_inventories where shop = 'Vaelstroms Armaments' "
-#                            "order by special_text, item_name;",)
-#     context = {'items': inventory}
-#     return render(request, 'dnd/vaelstrom.html', context=context)
+
+def encyclopedia(request):
+    encycl = defaultdict(lambda: defaultdict(list))  # Nested dict for section → subsection → entries
+    with open('../dnd/shops/encyclopedia.csv', newline='', encoding='utf-8') as encycl_csv:
+        reader = csv.DictReader(encycl_csv)
+        for row in reader:
+            section = row['section']
+            subsection = row['subsection']
+            entry = {
+                'title': row['title'],
+                'description': row['description']
+            }
+            encycl[section][subsection].append(entry)
+    context = {'encycl': encycl}
+    return render(request, 'dnd/encyclo.html', context=context)
