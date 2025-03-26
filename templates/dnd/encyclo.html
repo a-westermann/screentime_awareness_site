@@ -39,49 +39,34 @@
 
             <div id="section-{{ forloop.counter }}" class="accordion-collapse collapse hide" data-parent="#encyclopediaAccordion">
                 <div class="accordion-body">
+                    <div class="accordion" id="subsection-accordion-{{ forloop.counter }}">
+                        {% for subsection, entries in subsections.items %}
+                            <div class="accordion-item">
+                                <!-- Subsection Header -->
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed chocolate text-large" type="button" data-toggle="collapse" data-target="#subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" aria-expanded="false">
+                                        {{ subsection|default:"Misc" }}
+                                    </button>
+                                </h3>
 
-                    {% if subsections is iterable and subsections.0 is not defined %}
-                        <!-- This means subsections exist -->
-                        <div class="accordion" id="subsection-accordion-{{ forloop.counter }}">
-                            {% for subsection, entries in subsections.items %}
-                                <div class="accordion-item">
-                                    <!-- Subsection Header -->
-                                    <h3 class="accordion-header">
-                                        <button class="accordion-button collapsed chocolate text-large" type="button" data-toggle="collapse" data-target="#subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" aria-expanded="false">
-                                            {{ subsection|default:"Misc" }}
-                                        </button>
-                                    </h3>
-
-                                    <div id="subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" class="accordion-collapse collapse">
-                                        <div class="accordion-body">
-                                            {% for entry in entries %}
-                                                <div class="entry">
-                                                    <strong>{{ entry.title }}</strong>: {{ entry.description }}
-                                                </div>
-                                                <hr>
-                                            {% endfor %}
-                                        </div>
+                                <div id="subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        {% for entry in entries %}
+                                            <div class="entry">
+                                                <strong>{{ entry.title }}</strong>: {{ entry.description }}
+                                            </div>
+                                            <hr>
+                                        {% endfor %}
                                     </div>
                                 </div>
-                            {% endfor %}
-                        </div> <!-- End Subsection Accordion -->
-
-                    {% else %}
-                        <!-- No subsections, just a flat list -->
-                        {% for entry in subsections %}
-                            <div class="entry">
-                                <strong>{{ entry.title }}</strong>: {{ entry.description }}
                             </div>
-                            <hr>
                         {% endfor %}
-                    {% endif %}
-
+                    </div> <!-- End Subsection Accordion -->
                 </div>
             </div>
         </div>
     {% endfor %}
 </div> <!-- End Main Accordion -->
-
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
