@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('screentime_awareness.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),  # views for account log ins, password changes, etc
+    path('', include('shared_calendar.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
