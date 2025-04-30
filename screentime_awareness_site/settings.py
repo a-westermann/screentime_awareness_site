@@ -144,7 +144,7 @@ SESSION_COOKIE_AGE = 30 * 60  # expire session after 30 minutes of no new cookie
 # 3rd party libraries, etc into the folder that the server will serve from
 # STATIC_ROOT = '/home/ubuntu/screentime_awareness_site/'
 # UPDATE: It is needed b/c I now use a 3rd party library (shared-calendar)
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = 'static/'
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')
 #                     ]
