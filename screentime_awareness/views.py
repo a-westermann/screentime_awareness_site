@@ -21,8 +21,6 @@ def index(request, invalid_login=False, logout=False):
         request.session.clear()
     if request.session and 'user' in request.session and request.session['user']\
             and json.loads(request.session['user']):
-        if json.loads(request.session['user'])['username'] in ['Ash', 'a.westermann.19']:
-            return redirect('calendar')
         return redirect('home')
     else:
         context['logged_out'] = True
@@ -35,6 +33,8 @@ def home(request):
         # user is not logged in this session. Redirect to index
         return redirect('index')
     username = json.loads(request.session['user'])['username']
+    if username in ['Ash', 'a.westermann.19']:
+        return redirect('calendar')
     context = {'username': username}
     if 'runserver' in sys.argv:
         context['dev'] = True
