@@ -27,46 +27,95 @@
 {% endif %}
 
 
-<div class="accordion" id="encyclopediaAccordion">
+{#<div class="accordion" id="encyclopediaAccordion">#}
+{#    {% for section, subsections in encycl.items %}#}
+{#        <div class="accordion-item">#}
+{#            <!-- Section Header -->#}
+{#            <h2 class="accordion-header">#}
+{#                <button class="accordion-button text-large fw-bold text-dark" type="button" data-toggle="collapse" data-target="#section-{{ forloop.counter }}" aria-expanded="true">#}
+{#                    {{ section }}#}
+{#                </button>#}
+{#            </h2>#}
+{##}
+{#            <div id="section-{{ forloop.counter }}" class="accordion-collapse collapse hide" data-parent="#encyclopediaAccordion">#}
+{#                <div class="accordion-body">#}
+{#                    <div class="accordion" id="subsection-accordion-{{ forloop.counter }}">#}
+{#                        {% for subsection, entries in subsections.items %}#}
+{#                            <div class="accordion-item">#}
+{#                                <!-- Subsection Header -->#}
+{#                                <h3 class="accordion-header">#}
+{#                                    <button class="accordion-button collapsed chocolate fw-bold" type="button" data-toggle="collapse" data-target="#subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" aria-expanded="false">#}
+{#                                        {{ subsection|default:"Misc" }}#}
+{#                                    </button>#}
+{#                                </h3>#}
+{##}
+{#                                <div id="subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" class="accordion-collapse collapse">#}
+{#                                    <div class="accordion-body">#}
+{#                                        {% for entry in entries %}#}
+{#                                            <div class="entry">#}
+{#                                                <strong>{{ entry.title }}</strong>: {{ entry.description }}#}
+{#                                            </div>#}
+{#                                            <hr>#}
+{#                                        {% endfor %}#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        {% endfor %}#}
+{#                    </div> <!-- End Subsection Accordion -->#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    {% endfor %}#}
+{#</div> <!-- End Main Accordion -->#}
+<!-- Optional Table of Contents (you can remove this block if you don’t want it) -->
+<div class="toc mb-4">
+    <h4>Table of Contents</h4>
+    <ul>
+        {% for section, subsections in encycl.items %}
+            <li><a href="#{{ section|slugify }}">{{ section }}</a>
+                <ul>
+                    {% for subsection in subsections %}
+                        <li><a href="#{{ section|slugify }}-{{ subsection|default:"Misc"|slugify }}">{{ subsection|default:"Misc" }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Encyclopedia Content -->
+<div id="encyclopedia">
     {% for section, subsections in encycl.items %}
-        <div class="accordion-item">
-            <!-- Section Header -->
-            <h2 class="accordion-header">
-                <button class="accordion-button text-large fw-bold text-dark" type="button" data-toggle="collapse" data-target="#section-{{ forloop.counter }}" aria-expanded="true">
-                    {{ section }}
-                </button>
-            </h2>
+        <!-- Section Header -->
+        <h2 id="{{ section|slugify }}" class="fw-bold text-dark mt-5">{{ section }}</h2>
 
-            <div id="section-{{ forloop.counter }}" class="accordion-collapse collapse hide" data-parent="#encyclopediaAccordion">
-                <div class="accordion-body">
-                    <div class="accordion" id="subsection-accordion-{{ forloop.counter }}">
-                        {% for subsection, entries in subsections.items %}
-                            <div class="accordion-item">
-                                <!-- Subsection Header -->
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed chocolate fw-bold" type="button" data-toggle="collapse" data-target="#subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" aria-expanded="false">
-                                        {{ subsection|default:"Misc" }}
-                                    </button>
-                                </h3>
+        {% for subsection, entries in subsections.items %}
+            <!-- Subsection Header -->
+            <h3 id="{{ section|slugify }}-{{ subsection|default:"Misc"|slugify }}" class="fw-bold mt-3">
+                {{ subsection|default:"Misc" }}
+            </h3>
 
-                                <div id="subsection-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" class="accordion-collapse collapse">
-                                    <div class="accordion-body">
-                                        {% for entry in entries %}
-                                            <div class="entry">
-                                                <strong>{{ entry.title }}</strong>: {{ entry.description }}
-                                            </div>
-                                            <hr>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div> <!-- End Subsection Accordion -->
+            {% for entry in entries %}
+                <!-- Entry Content -->
+                <div id="{{ entry.title|slugify }}" class="entry mb-2">
+                    <strong>{{ entry.title }}</strong>: {{ entry.description }}
                 </div>
-            </div>
-        </div>
+            {% endfor %}
+        {% endfor %}
     {% endfor %}
-</div> <!-- End Main Accordion -->
+</div>
+
+<!-- Optional: Smooth scroll to anchor on page load -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+});
+</script>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
