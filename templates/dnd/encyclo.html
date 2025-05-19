@@ -70,15 +70,10 @@
 
 <div class="container-fluid">
     <div class="toc mb-4">
-        <h4>Table of Contents</h4>
+        <p class="chocolate">Table of Contents</p>
         <ul>
             {% for section, subsections in encycl.items %}
                 <li><a href="#{{ section|slugify }}">{{ section }}</a>
-                    <ul>
-                        {% for subsection in subsections %}
-                            <li><a href="#{{ section|slugify }}-{{ subsection|default:"Misc"|slugify }}">{{ subsection|default:"Misc" }}</a></li>
-                        {% endfor %}
-                    </ul>
                 </li>
             {% endfor %}
         </ul>
