@@ -67,7 +67,8 @@
 {#        </div>#}
 {#    {% endfor %}#}
 {#</div> <!-- End Main Accordion -->#}
-<!-- Optional Table of Contents (you can remove this block if you don’t want it) -->
+
+<div class="container-fluid">
 <div class="toc mb-4">
     <h4>Table of Contents</h4>
     <ul>
@@ -82,8 +83,10 @@
         {% endfor %}
     </ul>
 </div>
+<div class="container-fluid">
 
 <!-- Encyclopedia Content -->
+<div class="container-fluid">
 <div id="encyclopedia">
     {% for section, subsections in encycl.items %}
         <!-- Section Header -->
@@ -103,6 +106,7 @@
             {% endfor %}
         {% endfor %}
     {% endfor %}
+</div>
 </div>
 
 <!-- Optional: Smooth scroll to anchor on page load -->
