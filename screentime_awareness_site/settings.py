@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap5',
-    'shared_calendar',
+  #  'shared_calendar',
     'govee_bulb_automation'
 ]
 
