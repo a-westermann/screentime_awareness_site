@@ -34,5 +34,8 @@ urlpatterns = [
     path('Enchanted_Emporium/', views.shop, name='shop'),
     path('Arcane_Atelier/', views.shop, name='shop'),
     path('For_Health_(and_Fun!)/', views.shop, name='shop'),
-    path('Encyclopedia/', views.encyclopedia, name='encyclopeda')
+    path('Encyclopedia/', views.encyclopedia, name='encyclopeda'),
+
+    # shopping list
+    path('shopping_list', views.shopping_list, name='shopping_list'),
 ]

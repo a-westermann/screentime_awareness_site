@@ -58,7 +58,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5',
   #  'shared_calendar',
-    'govee_bulb_automation'
+    'govee_bulb_automation',
+    'shopping_list'
 ]
 
 MIDDLEWARE = [
@@ -182,6 +183,11 @@ LOGGING = {
             'handlers': ['file'],
             'level': 'DEBUG',
             'propagate': True,
+        },
+    'govee_bulb_automation': {  # Your app logger
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': False,
         },
     },
 }
