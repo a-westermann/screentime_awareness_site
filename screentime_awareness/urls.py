@@ -36,6 +36,4 @@ urlpatterns = [
     path('For_Health_(and_Fun!)/', views.shop, name='shop'),
     path('Encyclopedia/', views.encyclopedia, name='encyclopeda'),
 
-    # shopping list
-    path('shopping_list', views.shopping_list, name='shopping_list'),
 ]
